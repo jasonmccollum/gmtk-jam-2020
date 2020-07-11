@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://particles/fire.png" type="Texture" id=1]
+[ext_resource path="res://particles/torch.png" type="Texture" id=2]
+
+[sub_resource type="Curve" id=1]
+max_value = 0.5
+_data = [ Vector2( 0, 0 ), 0.0, 4.19828, 0, 1, Vector2( 0.119097, 0.5 ), 0.0194179, 0.0194179, 0, 0, Vector2( 0.529774, 0.5 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -1.06332, 0.0, 1, 0 ]
+
+[node name="torch" type="Sprite"]
+position = Vector2( -0.320023, 50.68 )
+texture = ExtResource( 2 )
+
+[node name="fire2" type="CPUParticles2D" parent="."]
+position = Vector2( 0.364304, -50.6001 )
+texture = ExtResource( 1 )
+gravity = Vector2( 0, -100 )
+angular_velocity = 61.94
+angular_velocity_random = 1.0
+linear_accel = 47.31
+scale_amount = 0.5
+scale_amount_random = 0.52
+scale_amount_curve = SubResource( 1 )
+hue_variation = 0.15
+hue_variation_random = 0.54
