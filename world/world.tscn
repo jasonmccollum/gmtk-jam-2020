@@ -1,16 +1,39 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://world/platform_generator.gd" type="Script" id=1]
-[ext_resource path="res://world/platform.tscn" type="PackedScene" id=2]
-[ext_resource path="res://tentacle.png" type="Texture" id=3]
+[ext_resource path="res://world/platform09.tscn" type="PackedScene" id=2]
+[ext_resource path="res://world/world.gd" type="Script" id=3]
+[ext_resource path="res://world/sanity_manager.gd" type="Script" id=4]
+[ext_resource path="res://audio/music_manager.tscn" type="PackedScene" id=5]
+[ext_resource path="res://shaders/insanity_shader.tscn" type="PackedScene" id=6]
+[ext_resource path="res://icon.png" type="Texture" id=7]
+[ext_resource path="res://world/platform03.tscn" type="PackedScene" id=8]
+[ext_resource path="res://world/platform05.tscn" type="PackedScene" id=9]
+[ext_resource path="res://world/platform08.tscn" type="PackedScene" id=10]
+[ext_resource path="res://world/platform10.tscn" type="PackedScene" id=11]
+[ext_resource path="res://world/platform01.tscn" type="PackedScene" id=12]
+[ext_resource path="res://world/platform04.tscn" type="PackedScene" id=13]
+[ext_resource path="res://world/platform06.tscn" type="PackedScene" id=14]
+[ext_resource path="res://world/platform07.tscn" type="PackedScene" id=15]
+[ext_resource path="res://world/platform02.tscn" type="PackedScene" id=16]
 
 [node name="world" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="icon" type="Sprite" parent="."]
+position = Vector2( 936, 540 )
+scale = Vector2( 32.25, 18.375 )
+texture = ExtResource( 7 )
 
 [node name="platform_generator" type="Node2D" parent="."]
 script = ExtResource( 1 )
-platform_base = ExtResource( 2 )
+platform_bases = [ ExtResource( 12 ), ExtResource( 16 ), ExtResource( 8 ), ExtResource( 13 ), ExtResource( 9 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 10 ), ExtResource( 2 ), ExtResource( 11 ) ]
 
-[node name="tentacle" type="Sprite" parent="."]
-position = Vector2( 824, 336 )
-scale = Vector2( 0.875, 2.25 )
-texture = ExtResource( 3 )
+[node name="sanity_manager" type="Node2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="music_manager" parent="." instance=ExtResource( 5 )]
+
+[node name="insanity_shader" parent="." instance=ExtResource( 6 )]
+
+[editable path="insanity_shader"]
