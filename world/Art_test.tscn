@@ -1,3 +1,41 @@
-[gd_scene format=2]
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://world/platform03.tscn" type="PackedScene" id=1]
+[ext_resource path="res://particles/flashlight.tscn" type="PackedScene" id=2]
+[ext_resource path="res://particles/torch.tscn" type="PackedScene" id=3]
+[ext_resource path="res://world/platform02.tscn" type="PackedScene" id=4]
+[ext_resource path="res://world/platform01.tscn" type="PackedScene" id=5]
+[ext_resource path="res://background/background01.png" type="Texture" id=6]
+[ext_resource path="res://background/background01_n.png" type="Texture" id=7]
+[ext_resource path="res://particles/spore.tscn" type="PackedScene" id=8]
+[ext_resource path="res://tentacle_art/Tentacle01.tscn" type="PackedScene" id=9]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 6 )
+normal_map = ExtResource( 7 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.223529, 0.14902, 0.341176, 1 )
+
+[node name="platform" parent="." instance=ExtResource( 5 )]
+position = Vector2( 628.238, 294.128 )
+
+[node name="platform2" parent="." instance=ExtResource( 4 )]
+position = Vector2( -549.018, -355.779 )
+
+[node name="platform3" parent="." instance=ExtResource( 1 )]
+position = Vector2( -425.692, 486.948 )
+
+[node name="flashlight" parent="." instance=ExtResource( 2 )]
+position = Vector2( -792.97, 13.4828 )
+
+[node name="torch" parent="." instance=ExtResource( 3 )]
+position = Vector2( -588.261, -577.363 )
+
+[node name="CPUParticles2D" parent="." instance=ExtResource( 8 )]
+position = Vector2( 39.5034, -256.398 )
+
+[node name="tentacle" parent="." instance=ExtResource( 9 )]
+position = Vector2( 54.4824, 962.11 )
