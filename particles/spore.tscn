@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://particles/spore.png" type="Texture" id=1]
+[ext_resource path="res://particles/spore.gd" type="Script" id=2]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.137931, 0.892241, 1 )
@@ -14,3 +15,10 @@ gravity = Vector2( 0, 0 )
 angular_velocity = 17.35
 angular_velocity_random = 0.46
 color_ramp = SubResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( -10.0697, -53.1256, -16.9667, -51.223, -20.7719, -50.2717, -31.2363, -48.1312, -38.1333, -42.6612, -40.2737, -40.5208, -44.3168, -35.5264, -46.695, -29.8186, -49.0733, -23.1594, -50.7381, -15.0733, -52.4029, -6.51154, -51.4516, 1.57456, -50.0246, 7.04458, -48.3598, 13.4659, -45.9816, 19.6494, -41.9385, 28.449, -33.6146, 34.3947, -26.0041, 38.1999, -13.1615, 41.0538, 1.58379, 43.4321, 15.3777, 43.4321, 29.6473, 40.1025, 37.02, 36.5351, 43.4413, 30.5894, 48.6735, 22.5033, 52.4787, 10.8498, 54.1435, 1.81239, 54.1435, -6.03589, 52.4787, -20.7811, 48.4357, -28.3916, 42.7278, -36.2399, 30.123, -40.0451, 20.6099, -43.3747, 14.4264, -46.2286, 7.0538, -48.8447, 0.632477, -50.9851, -4.83753, -51.9364 )
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
