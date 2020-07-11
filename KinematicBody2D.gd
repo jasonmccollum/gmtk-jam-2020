@@ -82,21 +82,28 @@ func _physics_process(delta):
 	if Input.is_action_pressed('right'):
 		get_node( "AnimatedSprite" ).set_flip_h( false )
 		velocity.x += 1
+		$AnimatedSprite.play("Run")
 		if on_floor == false:
 			$AnimatedSprite.play("Jump")
+			
+			
+			
 	if Input.is_action_pressed('left'):
 		velocity.x -= 1
+		$AnimatedSprite.play("Run")
 		get_node( "AnimatedSprite" ).set_flip_h( true )
 		if on_floor == false:
 			$AnimatedSprite.play("Jump")
 			
 	if Input.is_action_pressed('up') and canClimb:
+		$AnimatedSprite.play("Climb")
 		velocity.y -= 1
 		onLadder = true
+		
 		#get_node( "AnimatedSprite" ).set_flip_h( true )
 	if Input.is_action_pressed('down') and canClimb:
 		velocity.y += 1
-		#get_node( "AnimatedSprite" ).set_flip_h( true )
+		$AnimatedSprite.play("Climb")
 
 	if(!canClimb):
 		onLadder = false
@@ -109,6 +116,9 @@ func _physics_process(delta):
 	if  Input.is_action_just_released('left'):
 		$AnimatedSprite.play("default")
 		
+	if  Input.is_action_just_released('up'):
+		$AnimatedSprite.stop()
+		
 		
 	#Handle Jump
 		
@@ -119,7 +129,7 @@ func _physics_process(delta):
 		if(is_on_floor() or onLadder):
 			jumpMeter = maxJump
 		if(jumpMeter > 0):
-			$AnimatedSprite.play("Jump")
+			
 			jumpMeter -= delta*100
 			velocity.y += -1000
 			jump_released = true

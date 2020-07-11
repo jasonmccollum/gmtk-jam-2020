@@ -1,22 +1,27 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=32 format=2]
 
-[ext_resource path="res://character_art/Nasrin_JumpFrame2.png" type="Texture" id=1]
+[ext_resource path="res://character_art/Jump/Nasrin_JumpFrame2.png" type="Texture" id=1]
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=2]
 [ext_resource path="res://tentacle_art/Tentacle01.tscn" type="PackedScene" id=3]
 [ext_resource path="res://tentacle.png" type="Texture" id=4]
-[ext_resource path="res://character_art/Nasrin_RunFrame1.png" type="Texture" id=5]
-[ext_resource path="res://character_art/Nasrin_RunFrame5.png" type="Texture" id=6]
-[ext_resource path="res://character_art/Nasrin_RunFrame7.png" type="Texture" id=7]
-[ext_resource path="res://character_art/Nasrin_RunFrame4.png" type="Texture" id=8]
-[ext_resource path="res://character_art/Nasrin_RunFrame6.png" type="Texture" id=9]
-[ext_resource path="res://character_art/spritesheet_Idle.png" type="Texture" id=10]
-[ext_resource path="res://character_art/Nasrin_RunFrame2.png" type="Texture" id=11]
-[ext_resource path="res://character_art/Nasrin_RunFrame3.png" type="Texture" id=12]
-[ext_resource path="res://character_art/Nasrin_RunFrame8.png" type="Texture" id=13]
+[ext_resource path="res://character_art/Run/Nasrin_RunFrame1.png" type="Texture" id=5]
+[ext_resource path="res://character_art/Run/Nasrin_RunFrame5.png" type="Texture" id=6]
+[ext_resource path="res://character_art/Run/Nasrin_RunFrame7.png" type="Texture" id=7]
+[ext_resource path="res://character_art/Run/Nasrin_RunFrame4.png" type="Texture" id=8]
+[ext_resource path="res://character_art/Run/Nasrin_RunFrame6.png" type="Texture" id=9]
+[ext_resource path="res://character_art/Idle/spritesheet_Idle.png" type="Texture" id=10]
+[ext_resource path="res://character_art/Run/Nasrin_RunFrame2.png" type="Texture" id=11]
+[ext_resource path="res://character_art/Run/Nasrin_RunFrame3.png" type="Texture" id=12]
+[ext_resource path="res://character_art/Run/Nasrin_RunFrame8.png" type="Texture" id=13]
 [ext_resource path="res://platforms/platform01.png" type="Texture" id=14]
-[ext_resource path="res://character_art/Nasrin_JumpFrame1.png" type="Texture" id=15]
+[ext_resource path="res://character_art/Jump/Nasrin_JumpFrame1.png" type="Texture" id=15]
 [ext_resource path="res://Ladder.gd" type="Script" id=16]
 [ext_resource path="res://background/background01.png" type="Texture" id=17]
+[ext_resource path="res://character_art/Climb/Nasrin_ClimbFrame5.png" type="Texture" id=18]
+[ext_resource path="res://character_art/Climb/Nasrin_ClimbFrame4.png" type="Texture" id=19]
+[ext_resource path="res://character_art/Climb/Nasrin_ClimbFrame3.png" type="Texture" id=20]
+[ext_resource path="res://character_art/Climb/Nasrin_ClimbFrame1.png" type="Texture" id=21]
+[ext_resource path="res://character_art/Climb/Nasrin_ClimbFrame2.png" type="Texture" id=22]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32.2402, 210.822 )
@@ -51,19 +56,24 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 13 ) ],
 "loop": true,
-"name": "Jump",
-"speed": 5.0
+"name": "Run",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "JumpDown",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 13 ) ],
+"frames": [ ExtResource( 15 ) ],
 "loop": true,
-"name": "Run",
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "Climb",
 "speed": 10.0
 } ]
 
@@ -119,9 +129,9 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
-position = Vector2( -4.49799, 16.2753 )
+position = Vector2( -5.49799, 16.2753 )
 frames = SubResource( 7 )
-animation = "Run"
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
