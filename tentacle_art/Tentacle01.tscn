@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://tentacle_art/Tentacle (1).png" type="Texture" id=1]
+[ext_resource path="res://tentacle_art/Wiggle.tres" type="Animation" id=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+
+[node name="tentacle" type="Polygon2D" parent="KinematicBody2D"]
+position = Vector2( -101.337, -455.284 )
+scale = Vector2( 1, 1.00679 )
+texture = ExtResource( 1 )
+skeleton = NodePath("../../Skeleton2D")
+polygon = PoolVector2Array( 34.2105, 457.895, 68.4211, 391.447, 56.5789, 384.211, 53.9474, 363.158, 65.7895, 351.316, 75, 350.658, 69.0789, 326.974, 50.6579, 291.447, 38.1579, 262.5, 36.8421, 224.342, 42.1053, 197.368, 55.2632, 172.368, 74.3421, 143.421, 80.2632, 124.342, 76.3158, 106.579, 59.8684, 97.3684, 49.3421, 84.8684, 48.6842, 70.3947, 64.4737, 48.0263, 85.5263, 34.8684, 103.289, 33.5526, 121.711, 48.0263, 125.658, 64.4737, 123.684, 88.1579, 109.211, 102.632, 96.0526, 110.526, 96.0526, 130.921, 88.1579, 175, 90.1316, 184.211, 88.8158, 195.395, 78.9474, 201.974, 75, 233.553, 85.5263, 256.579, 112.5, 296.711, 138.158, 336.184, 156.579, 378.947, 159.868, 393.421, 173.684, 400.658, 179.605, 414.474, 175, 428.947, 165.789, 435.526, 167.105, 453.289 )
+uv = PoolVector2Array( 34.2105, 457.895, 68.4211, 391.447, 56.5789, 384.211, 53.9474, 363.158, 65.7895, 351.316, 75, 350.658, 69.0789, 326.974, 50.6579, 291.447, 38.1579, 262.5, 36.8421, 224.342, 42.1053, 197.368, 55.2632, 172.368, 74.3421, 143.421, 80.2632, 124.342, 76.3158, 106.579, 61.1842, 96.7105, 49.3421, 84.8684, 48.6842, 70.3947, 64.4737, 48.0263, 85.5263, 34.8684, 103.289, 33.5526, 121.711, 48.0263, 125.658, 64.4737, 123.684, 88.1579, 109.211, 102.632, 96.0526, 110.526, 96.0526, 130.921, 88.1579, 175, 90.1316, 184.211, 88.8158, 195.395, 78.9474, 201.974, 75, 233.553, 85.5263, 256.579, 112.5, 296.711, 138.158, 336.184, 156.579, 378.947, 159.868, 393.421, 173.684, 400.658, 179.605, 414.474, 175, 428.947, 165.789, 435.526, 167.105, 453.289 )
+bones = [ NodePath("root"), PoolRealArray( 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 1 ), NodePath("root/base"), PoolRealArray( 0, 1, 1, 1, 1, 1, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0 ), NodePath("root/base/mid1"), PoolRealArray( 0, 0, 0, 0, 0.5, 0.5, 1, 1, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 1, 1, 0.5, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/base/mid1/mid2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0.5, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/base/mid1/mid2/mid3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 1, 1, 1, 1, 1, 0.5, 0, 0, 0, 0, 0, 0, 0.5, 1, 1, 1, 1, 1, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/base/mid1/mid2/mid3/tip"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KinematicBody2D"]
+rotation = 3.14159
+scale = Vector2( 13.1898, 3.98089 )
+polygon = PoolVector2Array( 0, 0 )
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+
+[node name="root" type="Bone2D" parent="Skeleton2D"]
+rotation = -1.55046
+rest = Transform2D( 0.0203376, -0.999793, 0.999793, 0.0203376, 0, 0 )
+
+[node name="base" type="Bone2D" parent="Skeleton2D/root"]
+rotation = 0.0468676
+rest = Transform2D( 1, 0, 0, 1, 0, 0 )
+__meta__ = {
+"_edit_ik_": true
+}
+
+[node name="mid1" type="Bone2D" parent="Skeleton2D/root/base"]
+position = Vector2( 109.871, 3.45422 )
+rotation = 0.327133
+rest = Transform2D( 1, 0, 0, 1, 109.871, 3.45422 )
+
+[node name="mid2" type="Bone2D" parent="Skeleton2D/root/base/mid1"]
+position = Vector2( 70.8209, -42.4027 )
+rotation = -0.320754
+rest = Transform2D( 1, 0, 0, 1, 70.8209, -42.4027 )
+
+[node name="mid3" type="Bone2D" parent="Skeleton2D/root/base/mid1/mid2"]
+position = Vector2( 90.4319, -1.27061 )
+rotation = -0.0497912
+rest = Transform2D( 1, 0, 0, 1, 90.4319, -1.27061 )
+
+[node name="tip" type="Bone2D" parent="Skeleton2D/root/base/mid1/mid2/mid3"]
+position = Vector2( 75.6856, 19.4971 )
+rotation = 0.182046
+scale = Vector2( 4.03974, 1 )
+rest = Transform2D( 4.03872, -0.0908625, 0.0224922, 0.999747, 75.6856, 19.4971 )
+__meta__ = {
+"_edit_ik_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+method_call_mode = 1
+anims/Wiggle = ExtResource( 2 )

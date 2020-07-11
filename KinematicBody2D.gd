@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 export (int) var speed = 300
 
+const JumpC = "ui_accept"
+
 #Involuntary movement Variables
 var insanityLevel = 0
 var insaneMoveCount = 0
@@ -9,10 +11,15 @@ const baseInsanityMovement = 2
 var isInsane = false
 
 #Jump Variables
-export var fall_gravity_scale := 200.0
+export var fall_gravity_scale := 500.0
 export var low_jump_gravity_scale := 100.0
 export var jump_power := 15000.0
 var jump_released = false
+var jumpMeter = 0
+const maxJump = 50
+
+var canClimb = false
+var onLadder = false
 
 
 #Physics
@@ -77,16 +84,22 @@ func _physics_process(delta):
 		velocity.x += 1
 		if on_floor == false:
 			$AnimatedSprite.play("Jump")
-		else:
-			$AnimatedSprite.play("Run")
 	if Input.is_action_pressed('left'):
 		velocity.x -= 1
 		get_node( "AnimatedSprite" ).set_flip_h( true )
 		if on_floor == false:
 			$AnimatedSprite.play("Jump")
-		else:
-			$AnimatedSprite.play("Run")
+			
+	if Input.is_action_pressed('up') and canClimb:
+		velocity.y -= 1
+		onLadder = true
+		#get_node( "AnimatedSprite" ).set_flip_h( true )
+	if Input.is_action_pressed('down') and canClimb:
+		velocity.y += 1
+		#get_node( "AnimatedSprite" ).set_flip_h( true )
 
+	if(!canClimb):
+		onLadder = false
 
 	#back to idle animation if right and left arrows are released
 	if  Input.is_action_just_released('right'):
@@ -98,24 +111,30 @@ func _physics_process(delta):
 		
 		
 	#Handle Jump
-	if Input.is_action_just_released("ui_accept"):
-		$AnimatedSprite.play("Jump")
-		jump_released = true
 		
-
-
 	#General Velocity
 	velocity = velocity.normalized() * speed
 	
+	if Input.is_action_pressed(JumpC):
+		if(is_on_floor() or onLadder):
+			jumpMeter = maxJump
+		if(jumpMeter > 0):
+			$AnimatedSprite.play("Jump")
+			jumpMeter -= delta*100
+			velocity.y += -1000
+			jump_released = true
+	
 	
 	#Applying gravity to player
-	velocity += Vector2.DOWN * earth_gravity * gravity_scale * delta
+	if(!onLadder):
+		velocity += Vector2.DOWN * earth_gravity * gravity_scale * delta
 
 	#Jump Physics
-	if velocity.y > 0: #Player is falling
+	if velocity.y > 0 and !is_on_floor(): #Player is falling
 		#Falling action is faster than jumping action | Like in mario
 		#On falling we apply a second gravity to the player
 		#We apply ((gravity_scale + fall_gravity_scale) * earth_gravity) gravity on the player
+		$AnimatedSprite.play("JumpDown")
 		velocity += Vector2.DOWN * earth_gravity * fall_gravity_scale * delta 
 		
 
@@ -131,10 +150,10 @@ func _physics_process(delta):
 		
 		if velocity.x == 0:
 			$AnimatedSprite.play("default")
+		else:
+			$AnimatedSprite.play("Run")
 			
-		if Input.is_action_just_pressed("ui_accept"): 
-			velocity = Vector2.UP * jump_power #Normal Jump action
-			$AnimatedSprite.play("Jump")
+		if Input.is_action_just_pressed(JumpC):
 			jump_released = false
 
 	velocity = move_and_slide(velocity, Vector2.UP) 
