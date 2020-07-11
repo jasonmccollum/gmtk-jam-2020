@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://world/platform.tscn" type="PackedScene" id=1]
+[ext_resource path="res://platforms/platform10.png" type="Texture" id=2]
+[ext_resource path="res://platforms/platform10_n.png" type="Texture" id=3]
+
+[sub_resource type="OccluderPolygon2D" id=1]
+polygon = PoolVector2Array( -150.561, -331.546, -128.348, -342.653, 114.413, -334.719, 138.213, -314.093, 147.733, -280.772, 147.733, -191.919, 163.599, -107.825, 181.053, -31.6651, 174.706, -7.86505, 123.933, 58.7751, 79.5058, 106.375, 81.0925, 133.349, 103.306, 177.775, 115.999, 230.136, 104.893, 328.509, 76.3325, 363.416, -41.0812, 407.843, -60.1212, 396.736, -58.5346, 358.656, -34.7345, 320.576, -31.5612, 252.349, -85.508, 190.469, -115.655, 157.149, -125.175, 117.482, -115.655, 49.2551, -128.348, -34.8384, -155.322, -155.425, -174.362, -203.026, -179.122, -247.452, -156.908, -306.159 )
+
+[node name="platform" instance=ExtResource( 1 )]
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 2 )
+normal_map = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PoolVector2Array( 173.202, -23.7318, 68.4816, 112.722, 109.735, 257.109, 82.7617, 363.416, -58.4521, 393.563, -29.892, 255.522, -120.332, 130.175, -179.039, -225.239, -148.892, -336.306, 135.122, -328.373 )
+
+[node name="LightOccluder2D" parent="." index="2"]
+position = Vector2( -3.09082, 0 )
+occluder = SubResource( 1 )
