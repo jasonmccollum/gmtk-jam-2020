@@ -56,15 +56,15 @@ animations = [ {
 "name": "Jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "JumpDown",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 5 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 13 ) ],
 "loop": true,
 "name": "Run",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "JumpDown",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=8]
@@ -122,7 +122,6 @@ __meta__ = {
 position = Vector2( -4.49799, 16.2753 )
 frames = SubResource( 7 )
 animation = "Run"
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
@@ -131,7 +130,7 @@ position = Vector2( -1.72083, 9.65733 )
 shape = SubResource( 8 )
 
 [node name="Node2D" parent="." instance=ExtResource( 3 )]
-position = Vector2( 184.001, 1051 )
+position = Vector2( 164.001, 971 )
 
 [node name="Tentacle1" type="KinematicBody2D" parent="."]
 position = Vector2( 1337.65, 216.013 )

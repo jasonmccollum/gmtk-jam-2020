@@ -1,13 +1,13 @@
 extends Node2D
 
-export var generation_distance = 500
+export var generation_distance = 300
 export var generation_y = -400
 export var min_platforms_per_row = 3
-export var max_platforms_per_row = 6
+export var max_platforms_per_row = 5
 export var y_variation_per_row = 250
 export var x_buffer = 100
 
-export (PackedScene) var platform_base = null
+export (Array, PackedScene) var platform_bases = []
 
 var is_generating_platforms = true
 var last_row = null
@@ -54,7 +54,8 @@ func generate_row():
 		last_row.append(generate_platform(x, y))
 
 func generate_platform(x, y):
-	var platform = platform_base.instance()
+	var index = randi() % platform_bases.size()
+	var platform = platform_bases[index].instance()
 	platform.position = Vector2(x, y)
 	add_child(platform)
 
