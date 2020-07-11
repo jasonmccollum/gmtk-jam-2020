@@ -1,7 +1,16 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://particles/spore.png" type="Texture" id=1]
 
-[node name="spore" type="Sprite"]
-position = Vector2( 155, 110 )
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.137931, 0.892241, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+amount = 3
+lifetime = 10.0
 texture = ExtResource( 1 )
+gravity = Vector2( 0, 0 )
+angular_velocity = 17.35
+angular_velocity_random = 0.46
+color_ramp = SubResource( 1 )
