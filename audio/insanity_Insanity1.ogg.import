@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/insanity_Insanity1.ogg-15fd9b415075101a363fcbe1ed40ab78.oggstr"
+
+[deps]
+
+source_file="res://audio/insanity_Insanity1.ogg"
+dest_files=[ "res://.import/insanity_Insanity1.ogg-15fd9b415075101a363fcbe1ed40ab78.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
