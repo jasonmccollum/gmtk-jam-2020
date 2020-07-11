@@ -1,9 +1,8 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://character_art/Nasrin_JumpFrame2.png" type="Texture" id=1]
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=2]
-[ext_resource path="res://Tentacle1.gd" type="Script" id=3]
-[ext_resource path="res://tentacle_art/Tentacle.png" type="Texture" id=4]
+[ext_resource path="res://tentacle_art/Tentacle01.tscn" type="PackedScene" id=3]
 [ext_resource path="res://character_art/Nasrin_RunFrame1.png" type="Texture" id=5]
 [ext_resource path="res://character_art/Nasrin_RunFrame5.png" type="Texture" id=6]
 [ext_resource path="res://character_art/Nasrin_RunFrame7.png" type="Texture" id=7]
@@ -15,7 +14,6 @@
 [ext_resource path="res://character_art/Nasrin_RunFrame8.png" type="Texture" id=13]
 [ext_resource path="res://platforms/platform01.png" type="Texture" id=14]
 [ext_resource path="res://character_art/Nasrin_JumpFrame1.png" type="Texture" id=15]
-[ext_resource path="res://tentacle_art/Tentacle (1).png" type="Texture" id=16]
 [ext_resource path="res://background/background01.png" type="Texture" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -62,18 +60,15 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 38.7738, 79.7444 )
 
-[sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 32.4024, 32.9845 )
-
 [node name="Node2D" type="Node2D"]
 __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
 
 [node name="background01" type="Sprite" parent="."]
-position = Vector2( 389.009, 217.051 )
+position = Vector2( 946.698, 159.727 )
 rotation = 1.58149
-scale = Vector2( 2.95504, -1.56644 )
+scale = Vector2( 0.947406, -0.986186 )
 texture = ExtResource( 17 )
 
 [node name="PlatformTest" type="StaticBody2D" parent="."]
@@ -101,7 +96,6 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
 position = Vector2( -4.49799, 16.2753 )
 frames = SubResource( 6 )
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
@@ -109,62 +103,5 @@ visible = false
 position = Vector2( -1.72083, 9.65733 )
 shape = SubResource( 7 )
 
-[node name="Tentacle1" type="KinematicBody2D" parent="."]
-visible = false
-position = Vector2( 204.722, 950.376 )
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Tentacle1"]
-position = Vector2( -2.81448, 0.743713 )
-texture = ExtResource( 4 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tentacle1"]
-position = Vector2( -9.07712, -1.85181 )
-shape = SubResource( 8 )
-
-[node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2( 54.3106, 618.481 )
-color = Color( 0, 1, 0.741176, 1 )
-texture = ExtResource( 16 )
-skeleton = NodePath("../Skeleton2D")
-polygon = PoolVector2Array( 89.4171, 35.5357, 103.758, 35.5357, 118.008, 46.3803, 123.958, 59.4238, 124.873, 76.1286, 115.949, 96.0371, 94.4384, 111.369, 96.4979, 131.735, 92.5178, 163.83, 87.4545, 173.621, 91.5257, 183.799, 88.7267, 194.74, 78.1767, 203.753, 74.3008, 225.071, 80.8899, 250.652, 94.5191, 274.831, 116.328, 303.554, 139.732, 341.852, 151.434, 368.98, 157.476, 391.611, 167.233, 395.676, 175.363, 401.367, 180.07, 419.476, 172.771, 437.724, 164.742, 436.994, 166.931, 452.323, 118.36, 467.043, 37.7343, 458.892, 56.7124, 417.286, 65.4715, 391.739, 56.7124, 382.25, 52.3329, 362.542, 59.6321, 350.863, 71.3109, 350.133, 69.1212, 331.885, 58.9022, 307.797, 44.3036, 285.169, 35.5445, 245.753, 37.8361, 213.824, 50.8132, 178.201, 72.0409, 145.753, 78.649, 133.566, 77.1504, 109.257, 63.2818, 99.7679, 47.2234, 84.4394, 57.3675, 55.5336, 77.276, 39.5153, 54.0739, 476.287 )
-uv = PoolVector2Array( 89.4171, 35.5357, 103.758, 35.5357, 118.008, 46.3803, 123.958, 59.4238, 124.873, 76.1286, 115.949, 96.0371, 94.4384, 111.369, 96.4979, 131.735, 92.5178, 163.83, 87.4545, 173.621, 91.5257, 183.799, 88.7267, 194.74, 78.1767, 203.753, 74.3008, 225.071, 80.8899, 250.652, 94.5191, 274.831, 116.328, 303.554, 139.732, 341.852, 151.434, 368.98, 157.476, 391.611, 167.233, 395.676, 175.363, 401.367, 180.07, 419.476, 172.771, 437.724, 164.742, 436.994, 166.931, 452.323, 118.36, 467.043, 37.7343, 458.892, 56.7124, 417.286, 65.4715, 391.739, 56.7124, 382.25, 52.3329, 362.542, 59.6321, 350.863, 71.3109, 350.133, 69.1212, 331.885, 58.9022, 307.797, 44.3036, 285.169, 35.5445, 245.753, 37.8361, 213.824, 50.8132, 178.201, 72.0409, 145.753, 78.649, 133.566, 77.1504, 109.257, 63.2818, 99.7679, 47.2234, 84.4394, 57.3675, 55.5336, 77.276, 39.5153, 54.0739, 476.287 )
-bones = [ NodePath("Root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 ), NodePath("Root/MidSection"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Root/MidSection/MidHighSection"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0 ), NodePath("Root/MidSection/MidHighSection/High"), PoolRealArray( 0, 0, 0, 0, 0, 0, 1, 1, 1, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0 ), NodePath("Root/MidSection/MidHighSection/High/Top"), PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0 ) ]
-internal_vertex_count = 1
-
-[node name="Skeleton2D" type="Skeleton2D" parent="."]
-position = Vector2( 54.3106, 618.481 )
-
-[node name="Root" type="Bone2D" parent="Skeleton2D"]
-position = Vector2( 109.315, 465.015 )
-rotation = 1.58113
-scale = Vector2( 3.646, -1.01 )
-rest = Transform2D( -0.0376856, -3.64581, -1.00995, 0.0104395, 109.315, 465.015 )
-default_length = 40.0
-
-[node name="MidSection" type="Bone2D" parent="Skeleton2D/Root"]
-position = Vector2( 30.7275, 0.871445 )
-rotation = -1.42942
-scale = Vector2( 2.418, -0.21 )
-rest = Transform2D( 0.340699, 2.39388, 0.207905, -0.0295893, 30.7275, 0.871445 )
-
-[node name="MidHighSection" type="Bone2D" parent="Skeleton2D/Root/MidSection"]
-position = Vector2( 20.7061, 110.039 )
-rotation = -0.869174
-scale = Vector2( 1.05537, 16.0008 )
-rest = Transform2D( 0.681198, -0.806088, 12.2214, 10.3279, 20.7061, 110.039 )
-
-[node name="High" type="Bone2D" parent="Skeleton2D/Root/MidSection/MidHighSection"]
-position = Vector2( -110.023, 5.49176 )
-rotation = -0.0107473
-scale = Vector2( 5.86614, 1.41365 )
-rest = Transform2D( 5.86581, -0.0630438, 0.0151926, 1.41357, -110.023, 5.49176 )
-
-[node name="Top" type="Bone2D" parent="Skeleton2D/Root/MidSection/MidHighSection/High"]
-position = Vector2( -5.76221, 0.936432 )
-rotation = 2.99499
-scale = Vector2( 0.64, 0.021 )
-rest = Transform2D( -0.633134, 0.0934931, -0.00306774, -0.0207747, -5.76221, 0.936432 )
+[node name="Node2D" parent="." instance=ExtResource( 3 )]
+position = Vector2( 184.001, 1051 )
