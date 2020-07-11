@@ -1,7 +1,7 @@
 extends Node2D
 
 export var generation_distance = 500
-export var generation_y = -200
+export var generation_y = -400
 export var min_platforms_per_row = 3
 export var max_platforms_per_row = 6
 export var y_variation_per_row = 250
