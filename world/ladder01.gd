@@ -14,9 +14,9 @@ func _process(delta):
 
 func _on_Area2D_body_entered(body):
 	if(body.name == "Player"):
-		get_node("../Player").canClimb = true
+		body.canClimb = true
 
 
 func _on_Area2D_body_exited(body):
 	if(body.name == "Player"):
-		get_node("../Player").canClimb = false
+		body.canClimb = false
