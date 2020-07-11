@@ -1,32 +1,26 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://platforms/platform01.png" type="Texture" id=1]
 [ext_resource path="res://platforms/platform01_n.png" type="Texture" id=2]
 [ext_resource path="res://world/platform.tscn" type="PackedScene" id=3]
 
-[sub_resource type="CanvasItemMaterial" id=4]
-light_mode = 2
-
-[sub_resource type="ConvexPolygonShape2D" id=3]
+[sub_resource type="CanvasItemMaterial" id=1]
 
 [sub_resource type="OccluderPolygon2D" id=2]
-polygon = PoolVector2Array( -190.559, -62.515, -125.544, -116.915, -8.78217, -150.75, 127.882, -138.808, 169.678, -114.262, 186.927, -19.3927, 119.258, 123.243, -12.0993, 134.521, -120.9, 100.686, -185.252, 21.7394 )
+polygon = PoolVector2Array( -190.559, -62.515, -164.444, -89.4815, -126.723, -118.82, -8.78217, -150.75, 85.2301, -149.355, 127.882, -138.808, 157.079, -109.839, 186.927, -19.3927, 161.869, 41.6421, 101.995, 118.879, -12.3642, 133.249, -68.0468, 119.478, -120.9, 100.686, -156.061, 61.4005, -185.252, 21.7394, -191.387, -20.0279 )
 
 [node name="platform" instance=ExtResource( 3 )]
 
 [node name="Sprite" parent="." index="0"]
-material = SubResource( 4 )
+material = SubResource( 1 )
 scale = Vector2( 1, 1 )
 texture = ExtResource( 1 )
 normal_map = ExtResource( 2 )
 
-[node name="CollisionShape2D" parent="." index="1"]
-shape = SubResource( 3 )
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PoolVector2Array( -126.711, -119.388, -8.32297, -151.113, 84.6314, -149.954, 124.767, -140.28, 157.079, -109.839, 187.016, -42.1812, 184.022, -3.86194, 161.27, 41.6421, 100.797, 119.478, -9.09677, 132.865, -62.0594, 121.274, -121.295, 99.5923, -156.061, 63.1967, -186.597, 20.0876, -192.584, -21.2253, -191.709, -62.9017, -163.845, -91.2777 )
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="." index="2"]
+[node name="LightOccluder2D" parent="." index="2"]
 modulate = Color( 0.0901961, 0.0862745, 0.121569, 1 )
 show_behind_parent = true
 occluder = SubResource( 2 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="3"]
-polygon = PoolVector2Array( -126.711, -119.388, -8.32297, -151.113, 124.767, -140.28, 171.968, -113.197, 185.896, -19.57, 119.351, 122.806, -9.09677, 132.865, -121.295, 99.5923, -189.388, 21.4404, -191.709, -62.9017 )
