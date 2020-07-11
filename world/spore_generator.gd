@@ -1,6 +1,6 @@
 extends Node2D
 
-export var generation_distance = 100
+export var generation_distance = 20
 export var generation_y = 1400
 export var min_spores_per_row = 3
 export var max_spores_per_row = 6
@@ -11,6 +11,7 @@ export (PackedScene) var spore_base = null
 
 var is_generating_spores = true
 var last_row = null
+var generationCountDown = 5
 
 onready var max_generation_x = get_viewport_rect().size.x
 onready var row_x_step = max_generation_x / max_spores_per_row
@@ -20,8 +21,11 @@ func _ready():
 
 func _process(delta):
 	if is_generating_spores:
-		if average_distance_to_last_row() <= generation_distance:
+		if generationCountDown <= 0:
 			generate_row()
+			generationCountDown = 5
+		else:
+			generationCountDown -= delta
 
 func average_distance_to_last_row():
 	# Returns the average y of the row
