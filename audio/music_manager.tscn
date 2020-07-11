@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://audio/insanity_Insanity3.ogg" type="AudioStream" id=1]
+[ext_resource path="res://audio/insanity_Insanity1.ogg" type="AudioStream" id=2]
+[ext_resource path="res://audio/insanity_Insanity2.ogg" type="AudioStream" id=3]
+[ext_resource path="res://audio/insanity_Insanity0.ogg" type="AudioStream" id=4]
+[ext_resource path="res://audio/music_manager.gd" type="Script" id=5]
+
+[node name="music_manager" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="insanity0" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = 1.0
+autoplay = true
+
+[node name="insanity1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -80.0
+autoplay = true
+
+[node name="insanity2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -80.0
+autoplay = true
+
+[node name="insanity3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = -80.0
+autoplay = true
