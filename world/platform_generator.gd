@@ -20,7 +20,6 @@ func _ready():
 
 func _process(delta):
 	if is_generating_platforms:
-		print(average_distance_to_last_row())
 		if average_distance_to_last_row() >= generation_distance:
 			generate_row()
 
