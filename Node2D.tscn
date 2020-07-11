@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://character_art/Nasrin_JumpFrame2.png" type="Texture" id=1]
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=2]
@@ -15,6 +15,10 @@
 [ext_resource path="res://platforms/platform01.png" type="Texture" id=14]
 [ext_resource path="res://character_art/Nasrin_JumpFrame1.png" type="Texture" id=15]
 [ext_resource path="res://background/background01.png" type="Texture" id=17]
+[ext_resource path="res://Ladder.gd" type="Script" id=16]
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 32.2402, 210.822 )
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 207.821, 93.9419 )
@@ -60,6 +64,9 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 38.7738, 79.7444 )
 
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 32.4024, 32.9845 )
+
 [node name="Node2D" type="Node2D"]
 __meta__ = {
 "_edit_horizontal_guides_": [  ]
@@ -70,6 +77,18 @@ position = Vector2( 946.698, 159.727 )
 rotation = 1.58149
 scale = Vector2( 0.947406, -0.986186 )
 texture = ExtResource( 17 )
+
+[node name="Ladder" type="Area2D" parent="."]
+script = ExtResource( 16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder"]
+position = Vector2( 476.594, 288.107 )
+shape = SubResource( 9 )
+
+[node name="Sprite" type="Sprite" parent="Ladder"]
+position = Vector2( 477.903, 290.43 )
+scale = Vector2( 1, 6.53248 )
+texture = ExtResource( 4 )
 
 [node name="PlatformTest" type="StaticBody2D" parent="."]
 position = Vector2( 454.928, 574.841 )
@@ -96,6 +115,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
 position = Vector2( -4.49799, 16.2753 )
 frames = SubResource( 6 )
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
@@ -105,3 +125,17 @@ shape = SubResource( 7 )
 
 [node name="Node2D" parent="." instance=ExtResource( 3 )]
 position = Vector2( 184.001, 1051 )
+
+[node name="Tentacle1" type="KinematicBody2D" parent="."]
+position = Vector2( 1337.65, 216.013 )
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="Tentacle1"]
+position = Vector2( -2.81448, 0.743713 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tentacle1"]
+position = Vector2( -9.07712, -1.85181 )
+shape = SubResource( 8 )
+[connection signal="body_entered" from="Ladder" to="Ladder" method="_on_Ladder_body_entered"]
+[connection signal="body_exited" from="Ladder" to="Ladder" method="_on_Ladder_body_exited"]

@@ -14,6 +14,8 @@ export var low_jump_gravity_scale := 100.0
 export var jump_power := 15000.0
 var jump_released = false
 
+var onLadder = false
+
 
 #Physics
 var velocity = Vector2()
@@ -86,6 +88,13 @@ func _physics_process(delta):
 			$AnimatedSprite.play("Jump")
 		else:
 			$AnimatedSprite.play("Run")
+			
+	if Input.is_action_pressed('up') and onLadder:
+		velocity.y -= 1
+		#get_node( "AnimatedSprite" ).set_flip_h( true )
+	if Input.is_action_pressed('down') and onLadder:
+		velocity.y += 1
+		#get_node( "AnimatedSprite" ).set_flip_h( true )
 
 
 	#back to idle animation if right and left arrows are released
@@ -109,7 +118,8 @@ func _physics_process(delta):
 	
 	
 	#Applying gravity to player
-	velocity += Vector2.DOWN * earth_gravity * gravity_scale * delta
+	if(!onLadder):
+		velocity += Vector2.DOWN * earth_gravity * gravity_scale * delta
 
 	#Jump Physics
 	if velocity.y > 0: #Player is falling
