@@ -5,6 +5,7 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 513.716, 2.15851 )
 texture = ExtResource( 1 )
 texture_scale = 4.0
 color = Color( 0.835294, 0.937255, 1, 1 )
