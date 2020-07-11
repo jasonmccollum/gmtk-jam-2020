@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://world/platform_generator.gd" type="Script" id=1]
+[ext_resource path="res://world/platform.tscn" type="PackedScene" id=2]
+[ext_resource path="res://tentacle.png" type="Texture" id=3]
+
+[node name="world" type="Node2D"]
+
+[node name="platform_generator" type="Node2D" parent="."]
+script = ExtResource( 1 )
+platform_base = ExtResource( 2 )
+
+[node name="tentacle" type="Sprite" parent="."]
+position = Vector2( 824, 336 )
+scale = Vector2( 0.875, 2.25 )
+texture = ExtResource( 3 )
