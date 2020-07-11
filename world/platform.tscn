@@ -16,6 +16,7 @@ texture = ExtResource( 1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( 23.6098, -36.9653, 82.8846, -20.2007, 90.0695, 39.0742, 31.9921, 65.4186, -82.3665, 59.4312, -103.322, -13.0158, -29.6778, -33.9716 )
+one_way_collision = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource( 1 )

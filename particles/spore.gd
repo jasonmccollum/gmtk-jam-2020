@@ -12,6 +12,6 @@ func _process(delta):
 		queue_free()
 
 
-func _on_Area2D_body_entered(body):
-	if(body.name == "Player"):
-		get_node("../Player").insanityLevel += 1
+#func _on_Area2D_body_entered(body):
+	#if(body.name == "Player"):
+		#get_node("../Player").insanityLevel += 1
