@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/background01.png-47664cae8be36e6cb3fcb6b13c82b784.stex"
+
+[sub_resource type="StreamTexture" id=2]
+flags = 4
+load_path = "res://.import/background01_n.png-4f1958fe3fa6790f4e50111e16934f11.stex"
+
+[node name="background" type="Sprite"]
+texture = SubResource( 1 )
+normal_map = SubResource( 2 )
