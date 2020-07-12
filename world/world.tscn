@@ -60,22 +60,22 @@ max_y = null
 platform_bases = [ ExtResource( 12 ), ExtResource( 16 ), ExtResource( 8 ), ExtResource( 13 ), ExtResource( 9 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 10 ), ExtResource( 2 ), ExtResource( 11 ) ]
 
 [node name="platform2" parent="platform_generator" instance=ExtResource( 16 )]
-position = Vector2( 1923, 1076 )
+position = Vector2( 1878.48, 1127.37 )
 
 [node name="platform3" parent="platform_generator" instance=ExtResource( 8 )]
-position = Vector2( 1363, 1070 )
+position = Vector2( 1397.25, 1241.24 )
 
 [node name="platform4" parent="platform_generator" instance=ExtResource( 9 )]
-position = Vector2( -42, 1138 )
+position = Vector2( 2.52222, 1319.51 )
 
 [node name="platform5" parent="platform_generator" instance=ExtResource( 15 )]
-position = Vector2( 370, 1134 )
+position = Vector2( 366.575, 1164.82 )
 
 [node name="platform6" parent="platform_generator" instance=ExtResource( 2 )]
-position = Vector2( 698, 1129 )
+position = Vector2( 684.301, 1228.32 )
 
 [node name="platform7" parent="platform_generator" instance=ExtResource( 16 )]
-position = Vector2( 994, 1151 )
+position = Vector2( 1014.55, 1346.21 )
 
 [node name="platform" parent="platform_generator" instance=ExtResource( 12 )]
 position = Vector2( 934, 709 )
@@ -113,6 +113,10 @@ scale = Vector2( 0.32, 0.32 )
 [node name="insanity_shader" parent="." instance=ExtResource( 6 )]
 visible = false
 light_mask = 0
+
+[node name="tentaclemonster" parent="." instance=ExtResource( 23 )]
+position = Vector2( 978.159, 1425.62 )
+scale = Vector2( 0.5, 0.5 )
 
 [editable path="platform_generator/platform"]
 
