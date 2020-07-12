@@ -52,10 +52,12 @@ func timeOut():
 func HandleInsaneMovement():
 	velocity.x = randf()*2.0-1.0
 	velocity.y = randf()*2.0-1.0
-	velocity = velocity.normalized() * (speed) * (5)
 	
-	insaneMoveCount += 1
-	if(insaneMoveCount >= 30):
+	var root = get_tree().get_root().get_node("world")
+	velocity = velocity.normalized() * (speed) * (root.sanity_manager.current_insanity / 8)
+	
+	insaneMoveCount+=1
+	if(insaneMoveCount >= (root.sanity_manager.current_insanity / 2)):
 		isInsane = false
 		insaneMoveCount = 0
 	
@@ -144,9 +146,6 @@ func update_state():
 func kill_player():
 	playerDead = true
 
-	if(position.y > 2000):
-		deathScreen()
-
 	var deathTimer = Timer.new()
 	deathTimer.set_wait_time( 2.5 )
 	deathTimer.connect("timeout", self, "deathScreen")
@@ -157,6 +156,9 @@ func kill_player():
 
 func _physics_process(delta):
 	update_state()
+
+	if(position.y > 2000):
+		deathScreen()
 
 	velocity.y += gravity
 	

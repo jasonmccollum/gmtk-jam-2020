@@ -40,7 +40,11 @@ func _process(delta):
 			position.x += 0.7
 		else:
 			position.x -= 0.7
-
+		
+		var root = get_tree().get_root().get_node("world")
+		if(position.y > 1100 - (root.sanity_manager.current_insanity*3)):
+			position.y -= 0.5
+		
 	for bone in bones:
 		var depth = bone_depth[bone.name]
 		if depth == min_bone_depth:
