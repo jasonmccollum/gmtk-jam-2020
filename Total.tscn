@@ -40,8 +40,9 @@
 [ext_resource path="res://particles/torch.tscn" type="PackedScene" id=39]
 [ext_resource path="res://particles/flashlight.tscn" type="PackedScene" id=40]
 [ext_resource path="res://background/background01_n.png" type="Texture" id=41]
-[ext_resource path="res://ladder_generator.gd" type="Script" id=42]
+[ext_resource path="res://world/ladder_generator.gd" type="Script" id=42]
 [ext_resource path="res://world/ladder01.tscn" type="PackedScene" id=43]
+
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;

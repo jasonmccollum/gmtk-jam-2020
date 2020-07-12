@@ -1,27 +1,43 @@
 extends Node2D
 
 export var generation_distance = 300
-export var generation_y = -400
+export var generation_y = -600
 export var min_ladders_per_row = 3
 export var max_ladders_per_row = 5
 export var y_variation_per_row = 250
 export var x_buffer = 100
+export var max_y = 1600
 
 export (Array, PackedScene) var ladder_bases = []
 
-var is_generating_ladders = true
+var ladders = []
+var is_generating_ladders = false
 var last_row = null
+var move_speed = 0
 
 onready var max_generation_x = get_viewport_rect().size.x
 onready var row_x_step = max_generation_x / max_ladders_per_row
 
 func _ready():
+	yield(get_tree().create_timer(.1), "timeout")
 	generate_row()
+	is_generating_ladders = true
+
+func set_move_speed(amount):
+	move_speed = amount
 
 func _process(delta):
 	if is_generating_ladders:
 		if average_distance_to_last_row() >= generation_distance:
 			generate_row()
+
+func move_ladders(delta):
+	for ladder in ladders:
+		ladder.position.y += move_speed * delta
+		
+		if ladder.position.y >= max_y:
+			ladders.remove(ladders.find(ladder))
+			ladder.queue_free()
 
 func average_distance_to_last_row():
 	# Returns the average y of the row
@@ -51,7 +67,9 @@ func generate_row():
 		var x = rand_range(i * row_x_step + x_buffer, (i + 1) * row_x_step - x_buffer)
 		var y = generation_y + rand_range(-y_variation_per_row, y_variation_per_row)
 
-		last_row.append(generate_ladder(x, y))
+		var ladder = generate_ladder(x, y)
+		ladders.append(ladder)
+		last_row.append(ladder)
 
 func generate_ladder(x, y):
 	var index = randi() % ladder_bases.size()

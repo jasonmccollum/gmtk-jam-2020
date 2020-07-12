@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Screens/Narrative/Character2.png" type="Texture" id=1]
+[ext_resource path="res://Screens/Narrative/RichTextLabel.gd" type="Script" id=2]
+[ext_resource path="res://Screens/Fonts/SourceCodePro-Light.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Screens/Narrative/Button.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 68
+font_data = ExtResource( 3 )
+
+[node name="Narrative" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 959.017, 545.395 )
+texture = ExtResource( 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 100.521
+margin_top = 104.684
+margin_right = 848.521
+margin_bottom = 729.684
+custom_fonts/normal_font = SubResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 114.234
+margin_top = -377.006
+margin_right = 554.234
+margin_bottom = -254.006
+flat = true
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Button"]
+visible = false
+margin_top = 20.8202
+margin_right = 418.0
+margin_bottom = 100.82
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.945098, 0.862745, 0, 1 )
+text = "LET IT GROW >"
+__meta__ = {
+"_edit_use_anchors_": false
+}
