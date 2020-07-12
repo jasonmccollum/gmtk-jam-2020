@@ -42,3 +42,16 @@ func _physics_process(delta):
 	ladder_generator.move_speed = speed
 	scrolling_background.scroll_rate = speed
 	update_flashlight_state()
+	
+	#handle clamping of positioning
+	player.position.x = clamp(player.position.x, 10, 2000)
+	var monsterCount = 1
+	for monster in monsters.get_children():
+		if(monsterCount == 3):
+			monster.position.x = clamp(monster.position.x, 100, 665)
+		if(monsterCount == 1):
+			monster.position.x = clamp(monster.position.x, 766, 1332)
+		if(monsterCount == 2):
+			monster.position.x = clamp(monster.position.x, 1933, 2200)
+		
+		monsterCount += 1
