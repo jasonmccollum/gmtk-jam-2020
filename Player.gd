@@ -155,6 +155,3 @@ func _physics_process(delta):
 	else: on_floor = false
 	
 	position.x = clamp(position.x, 0, 1900)
-
-func get_decay_weight(x, b=0.99, a=1):
-	return a * pow(1-b, x)

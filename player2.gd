@@ -13,10 +13,10 @@ var isInsane = false
 var insanity_timer
 
 #Jump Variables
-export var jump_power := 15000.0
+export var jump_power := 1000
 var jump_released = false
-var jumpMeter = 0
-const maxJump = 50
+var jumpTimer = 0
+const maxJumpTime = 0.2
 var can_jump = false
 var is_jumping = false
 
@@ -30,8 +30,9 @@ var on_floor = true
 # Helper info for animation states
 var horizontal_input = false
 
-func get_input():
+func get_input(delta):
 	horizontal_input = false
+	var climb_pressed = false
 	var move_vector = Vector2(0, 0)
 
 	if Input.is_action_pressed('right'):
@@ -45,28 +46,33 @@ func get_input():
 
 	if Input.is_action_pressed('up') and canClimb:
 		move_vector.y -= 1
+		climb_pressed = true
 	elif Input.is_action_pressed('down') and canClimb:
 		move_vector.y += 1
+		climb_pressed = true
 
 	# Let the player climb normally if on a ladder
-	if canClimb and !is_jumping:
+	if canClimb and (!is_jumping or climb_pressed):
+		is_jumping = false
+		jumpTimer = 0
 		velocity = move_vector.normalized() * speed
 	else:
 		velocity.x = move_vector.x * speed
 		
-	if Input.is_action_pressed("jump") and move_vector.y == 0 and (on_floor or canClimb) and !is_jumping:
-		velocity.y = -1200
+	if Input.is_action_pressed("jump") and !climb_pressed and move_vector.y == 0 and (on_floor or canClimb or is_jumping) and can_jump:
 		is_jumping = true
-#		if(is_on_floor() or onLadder):
-#			jumpMeter = maxJump
-#		if(jumpMeter > 0):
-#			$AnimatedSprite.play("Jump")
-#			jumpMeter -= delta*100
-#			velocity.y += -1000
-#			jump_released = true
+		jump(delta)
+		
+	if Input.is_action_just_released("jump"):
+		can_jump = false
+
+func jump(delta):
+	if (jumpTimer < maxJumpTime):
+		velocity.y -= get_decay_weight(jumpTimer, maxJumpTime) * jump_power
+		jumpTimer += delta
 
 func update_animations():
-	if(canClimb):
+	if(canClimb) and !is_jumping:
 		if velocity.length() == 0:
 			$AnimatedSprite.stop()
 		else:
@@ -88,15 +94,19 @@ func update_state():
 	canClimb = overlapping_ladders.size() > 0
 	if on_floor:
 		is_jumping = false
+		can_jump = true
+		jumpTimer = 0
+	elif canClimb:
+		can_jump = true
 
 func _physics_process(delta):
 	update_state()
 
 	velocity.y += gravity
-	get_input()
+	get_input(delta)
 
 	velocity = move_and_slide(velocity, Vector2.UP)
-	
+
 	update_animations()
 
 
@@ -108,3 +118,6 @@ func _on_ladder_area_area_entered(area):
 func _on_ladder_area_area_exited(area):
 	if area.name == 'climb_area':
 		overlapping_ladders.remove(overlapping_ladders.find(area))
+
+func get_decay_weight(x, a=1, b=0.99):
+	return a * pow(1-b, x)

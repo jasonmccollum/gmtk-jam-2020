@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://world/platform_generator.gd" type="Script" id=1]
 [ext_resource path="res://world/platform09.tscn" type="PackedScene" id=2]
@@ -24,16 +24,10 @@
 [ext_resource path="res://particles/torch.tscn" type="PackedScene" id=22]
 [ext_resource path="res://tentacle_art/Tentacle02.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Screens/SanityBar/SanityCheckYay.tscn" type="PackedScene" id=24]
-[ext_resource path="res://particles/spore.tscn" type="PackedScene" id=25]
-[ext_resource path="res://world/spore_generator.gd" type="Script" id=26]
-[ext_resource path="res://particles/flashlight.tscn" type="PackedScene" id=27]
 
 [node name="world" type="Node2D"]
 script = ExtResource( 3 )
 move_speed = 0
-
-[node name="music_manager" parent="." instance=ExtResource( 5 )]
-visible = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.305882, 0.0509804, 0.501961, 1 )
@@ -96,28 +90,24 @@ position = Vector2( 304, 564 )
 position = Vector2( 28, -318 )
 scale = Vector2( 2, 2 )
 
+[node name="sanity_manager" type="Node2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="music_manager" parent="." instance=ExtResource( 5 )]
+
 [node name="player" parent="." instance=ExtResource( 21 )]
 position = Vector2( 930, 462 )
 
-[node name="Flashlight" parent="player" instance=ExtResource( 27 )]
-position = Vector2( 2.789, -41.392 )
-
 [node name="tentaclemonster" parent="." instance=ExtResource( 23 )]
-position = Vector2( 949.071, 1284.41 )
+position = Vector2( 1271, 1007 )
 scale = Vector2( 0.32, 0.32 )
+
+[node name="sanity_bar" parent="." instance=ExtResource( 24 )]
 
 [node name="insanity_shader" parent="." instance=ExtResource( 6 )]
 visible = false
 light_mask = 0
-
-[node name="spore_generator" type="Node2D" parent="."]
-script = ExtResource( 26 )
-spore_base = ExtResource( 25 )
-
-[node name="sanity_manager" type="Node2D" parent="."]
-script = ExtResource( 4 )
-
-[node name="SanityBar" parent="sanity_manager" instance=ExtResource( 24 )]
+margin_bottom = 1300.0
 
 [editable path="platform_generator/platform"]
 
