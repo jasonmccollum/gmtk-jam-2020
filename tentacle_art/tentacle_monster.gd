@@ -4,7 +4,7 @@ export var weight_scale = 10
 export var min_angle = -5
 export var max_angle = 5
 
-onready var player = get_parent().get_node("Player")
+var player = null
 onready var root = $Skeleton2D/base
 
 var bones = []
@@ -18,7 +18,7 @@ func _ready():
 func build_skeleton():
 	var bones_stack = [root]
 	
-	while bones_stack.size() and bones_stack.size() > 1:
+	while bones_stack.size():
 		var bone = bones_stack.pop_front()
 		bones.append(bone)
 		var depth = float(str(get_path_to(bone)).split('/').size())
@@ -28,8 +28,15 @@ func build_skeleton():
 		for child in bone.get_children():
 			bones_stack.append(child)
 
+func set_player(p):
+	player = p
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if !player:
+		return
+	print(player)
+
 	for bone in bones:
 		var depth = bone_depth[bone.name]
 		if depth == min_bone_depth:
