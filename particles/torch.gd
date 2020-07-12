@@ -9,6 +9,9 @@ var activated = false
 
 func _process(delta):
 	$Light2D.scale = Vector2.ONE * clamp(rand_range(min_size, max_size), $Light2D.scale.x - max_delta*delta, $Light2D.scale.x + max_delta*delta)
+	if(player_is_within and activated):
+		var root = get_tree().get_root().get_node("world")
+		root.sanity_manager.change_insanity(-delta / 2)
 
 func activate():
 	$Label.visible = false
