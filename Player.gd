@@ -90,8 +90,7 @@ func _physics_process(delta):
 
 	#back to idle animation if right and left arrows are released
 	if  Input.is_action_just_released('right'):
-
-			$AnimatedSprite.play("default")
+		$AnimatedSprite.play("default")
 	
 	if  Input.is_action_just_released('left'):
 		$AnimatedSprite.play("default")
