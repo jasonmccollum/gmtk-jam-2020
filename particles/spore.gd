@@ -37,9 +37,10 @@ func _on_Area2D_body_entered(body):
 func _on_Area2D_area_entered(area):
 	var is_on_flashlight = area.get_parent().name == 'flashlight' and area.get_parent().visible
 	var is_torch = area.get_parent().name == 'flashlight' and area.get_parent().get("activated")
-	
+	var isTentacleSpore = ("tip" in get_parent().name)
+
 	if area.get_parent().name == 'flashlight':
 		flashlight_ref = area.get_parent()
 
-	if is_on_flashlight or is_torch:
+	if is_on_flashlight or is_torch and !isTentacleSport:
 		die()
