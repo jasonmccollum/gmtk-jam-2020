@@ -9,7 +9,7 @@ var flashlight_ref = null
 
 func _physics_process(delta):
 	if flashlight_ref:
-		if flashlight_ref.visible:
+		if flashlight_ref.visible and !("tip" in get_parent().name):
 			die()
 
 	if!("tip" in get_parent().name):
