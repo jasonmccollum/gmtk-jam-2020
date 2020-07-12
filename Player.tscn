@@ -45,22 +45,22 @@ animations = [ {
 "name": "Jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "JumpDown",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 11 ), ExtResource( 10 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "Run",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "JumpDown",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 38.7738, 79.7444 )
 
-[node name="Player" type="KinematicBody2D"]
-position = Vector2( 406.211, 401.392 )
+[node name="player" type="KinematicBody2D"]
+position = Vector2( 0, -16 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -70,6 +70,7 @@ __meta__ = {
 position = Vector2( -4.49799, 16.2753 )
 frames = SubResource( 5 )
 animation = "Run"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
