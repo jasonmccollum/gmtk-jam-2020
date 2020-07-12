@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Screens/Title/TitleScreen0009.jpg" type="Texture" id=1]
 [ext_resource path="res://Screens/Title/TitleScreen0014.jpg" type="Texture" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://Screens/Title/TitleScreen0016.jpg" type="Texture" id=20]
 [ext_resource path="res://Screens/Fonts/SourceCodePro-Light.ttf" type="DynamicFontData" id=21]
 [ext_resource path="res://Screens/Title/Button.gd" type="Script" id=22]
+[ext_resource path="res://Screens/Narrative/20200711_131950.jpg" type="Texture" id=23]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -42,20 +43,33 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color( 0.286318, 0, 0.441406, 1 )
+self_modulate = Color( 0.521569, 0.447059, 0.447059, 1 )
+anchor_left = -0.225959
+anchor_top = -0.124959
+anchor_right = 1.15842
+anchor_bottom = 1.20889
+texture = ExtResource( 23 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 965.066, 543.37 )
+position = Vector2( 965.066, 664.162 )
 frames = SubResource( 1 )
-frame = 14
+frame = 5
 playing = true
 
 [node name="Button" type="Button" parent="."]
 anchor_left = -0.015
 anchor_top = -0.03
 anchor_right = 0.049
-margin_left = 688.028
-margin_top = 762.868
-margin_right = 911.028
-margin_bottom = 861.868
+margin_left = 628.773
+margin_top = 950.632
+margin_right = 851.773
+margin_bottom = 1049.63
 rect_rotation = -40.922
 flat = true
 script = ExtResource( 22 )
@@ -70,7 +84,7 @@ margin_bottom = 14.0
 rect_rotation = -2.15492
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.945098, 0.862745, 0, 1 )
-text = "BEGIN"
+text = "BEGIN >"
 __meta__ = {
 "_edit_use_anchors_": false
 }

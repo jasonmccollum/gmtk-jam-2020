@@ -1,16 +1,19 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Screens/Narrative/Character2.png" type="Texture" id=1]
 [ext_resource path="res://Screens/Narrative/RichTextLabel.gd" type="Script" id=2]
 [ext_resource path="res://Screens/Fonts/SourceCodePro-Light.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Screens/Narrative/Button.gd" type="Script" id=4]
+[ext_resource path="res://Screens/Narrative/20200711_131950.jpg" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 68
+
+[sub_resource type="DynamicFont" id=3]
+size = 65
 font_data = ExtResource( 3 )
 
 [node name="Narrative" type="Control"]
@@ -20,15 +23,38 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 959.017, 545.395 )
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color( 0.286318, 0, 0.441406, 1 )
+self_modulate = Color( 0.521569, 0.447059, 0.447059, 1 )
+anchor_left = -0.13089
+anchor_top = -0.108355
+anchor_right = 1.19619
+anchor_bottom = 1.15934
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Foreground" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -960.0
+margin_top = -541.5
+margin_right = 960.0
+margin_bottom = 541.5
 texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 100.521
-margin_top = 104.684
-margin_right = 848.521
-margin_bottom = 729.684
+margin_left = 104.0
+margin_top = 213.0
+margin_right = 852.0
+margin_bottom = 855.0
 custom_fonts/normal_font = SubResource( 1 )
 script = ExtResource( 2 )
 __meta__ = {
@@ -38,10 +64,11 @@ __meta__ = {
 [node name="Button" type="Button" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 114.234
-margin_top = -377.006
-margin_right = 554.234
-margin_bottom = -254.006
+margin_left = 103.0
+margin_top = -430.0
+margin_right = 536.0
+margin_bottom = -338.0
+custom_fonts/font = SubResource( 2 )
 flat = true
 script = ExtResource( 4 )
 __meta__ = {
@@ -50,13 +77,12 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Button"]
-visible = false
-margin_top = 20.8202
-margin_right = 418.0
-margin_bottom = 100.82
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0.945098, 0.862745, 0, 1 )
-text = "LET IT GROW >"
+margin_right = 440.0
+margin_bottom = 124.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.807843, 0.823529, 0.113725, 1 )
+text = "LET IT GO >"
+uppercase = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
