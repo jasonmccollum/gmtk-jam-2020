@@ -7,6 +7,7 @@ var insanityLevel = 0
 var insaneMoveCount = 0
 const baseInsanityMovement = 2
 var isInsane = false
+var playerDead = false
 
 #Jump Variables
 export var fall_gravity_scale := 500.0
@@ -53,7 +54,10 @@ func HandleInsaneMovement():
 		insaneMoveCount = 0
 
 func _physics_process(delta):
-	
+	if(playerDead):
+		$AnimatedSprite.play("Dead")
+		return
+		
 	velocity = Vector2()
 	
 	#General Velocity
