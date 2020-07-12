@@ -1,13 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
-[ext_resource path="res://world/platform.gd" type="Script" id=2]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( -102.124, -13.0152, -30.2758, -35.1685, 24.8081, -37.5635, 82.2869, -19.6014, 89.4718, 37.8775, 31.9929, 65.4194, -82.366, 60.6295 )
 
 [node name="platform" type="StaticBody2D"]
-script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, 5.72205e-06 )

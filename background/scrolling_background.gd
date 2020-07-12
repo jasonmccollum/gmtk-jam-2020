@@ -30,7 +30,7 @@ func init_backgrounds():
 	for i in range(3):
 		generate_background(true, -i * 1920)
 
-func _process(delta):
+func _physics_process(delta):
 	for i in range(backgrounds.size()):
 		var background = backgrounds[i]
 		background.position.y += scroll_rate * delta
