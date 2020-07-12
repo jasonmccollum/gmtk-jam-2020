@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://character_art/Run/Nasrin_RunFrame3.png" type="Texture" id=2]
@@ -17,6 +17,26 @@
 [ext_resource path="res://character_art/Climb/Nasrin_ClimbFrame2.png" type="Texture" id=15]
 [ext_resource path="res://character_art/Climb/Nasrin_ClimbFrame4.png" type="Texture" id=16]
 [ext_resource path="res://character_art/Climb/Nasrin_ClimbFrame3.png" type="Texture" id=17]
+[ext_resource path="res://character_art/Death/Death_DeathFrame17.png" type="Texture" id=18]
+[ext_resource path="res://character_art/Death/Death_DeathFrame4.png" type="Texture" id=19]
+[ext_resource path="res://character_art/Death/Death_DeathFrame1.png" type="Texture" id=20]
+[ext_resource path="res://character_art/Death/Death_DeathFrame8.png" type="Texture" id=21]
+[ext_resource path="res://character_art/Death/Death_DeathFrame10.png" type="Texture" id=22]
+[ext_resource path="res://character_art/Death/Death_DeathFrame19.png" type="Texture" id=23]
+[ext_resource path="res://character_art/Death/Death_DeathFrame13-20.png" type="Texture" id=24]
+[ext_resource path="res://character_art/Death/Death_DeathFrame3.png" type="Texture" id=25]
+[ext_resource path="res://character_art/Death/Death_DeathFrame14.png" type="Texture" id=26]
+[ext_resource path="res://character_art/Death/Death_DeathFrame20.png" type="Texture" id=27]
+[ext_resource path="res://character_art/Death/Death_DeathFrame2.png" type="Texture" id=28]
+[ext_resource path="res://character_art/Death/Death_DeathFrame7.png" type="Texture" id=29]
+[ext_resource path="res://character_art/Death/Death_DeathFrame13-12.png" type="Texture" id=30]
+[ext_resource path="res://character_art/Death/Death_DeathFrame16.png" type="Texture" id=31]
+[ext_resource path="res://character_art/Death/Death_DeathFrame6.png" type="Texture" id=32]
+[ext_resource path="res://character_art/Death/Death_DeathFrame9.png" type="Texture" id=33]
+[ext_resource path="res://character_art/Death/Death_DeathFrame11.png" type="Texture" id=34]
+[ext_resource path="res://character_art/Death/Death_DeathFrame15.png" type="Texture" id=35]
+[ext_resource path="res://character_art/Death/Death_DeathFrame5.png" type="Texture" id=36]
+[ext_resource path="res://character_art/Death/Death_DeathFrame18.png" type="Texture" id=37]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -44,6 +64,11 @@ animations = [ {
 "loop": true,
 "name": "default",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 28 ), ExtResource( 25 ), ExtResource( 19 ), ExtResource( 36 ), ExtResource( 32 ), ExtResource( 29 ), ExtResource( 21 ), ExtResource( 33 ), ExtResource( 22 ), ExtResource( 34 ), ExtResource( 30 ), ExtResource( 24 ), ExtResource( 26 ), ExtResource( 35 ), ExtResource( 31 ), ExtResource( 18 ), ExtResource( 37 ), ExtResource( 23 ), ExtResource( 27 ) ],
+"loop": true,
+"name": "Death",
+"speed": 8.0
 }, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
@@ -81,8 +106,8 @@ script = ExtResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -4.49799, 16.2753 )
 frames = SubResource( 5 )
-animation = "Climb"
-frame = 6
+animation = "Death"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

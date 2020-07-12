@@ -27,7 +27,7 @@
 
 [node name="world" type="Node2D"]
 script = ExtResource( 3 )
-move_speed = 0
+move_speed = 20
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.305882, 0.0509804, 0.501961, 1 )
