@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://world/platform_generator.gd" type="Script" id=1]
 [ext_resource path="res://world/platform09.tscn" type="PackedScene" id=2]
@@ -23,7 +23,6 @@
 [ext_resource path="res://Player.tscn" type="PackedScene" id=21]
 [ext_resource path="res://particles/torch.tscn" type="PackedScene" id=22]
 [ext_resource path="res://tentacle_art/Tentacle02.tscn" type="PackedScene" id=23]
-[ext_resource path="res://player2.gd" type="Script" id=24]
 
 [node name="world" type="Node2D"]
 script = ExtResource( 3 )
@@ -98,7 +97,6 @@ visible = false
 
 [node name="player" parent="." instance=ExtResource( 21 )]
 position = Vector2( 930, 462 )
-script = ExtResource( 24 )
 
 [node name="tentaclemonster" parent="." instance=ExtResource( 23 )]
 position = Vector2( 1271, 1007 )

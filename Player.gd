@@ -153,7 +153,6 @@ func _physics_process(delta):
 
 	if is_on_floor(): on_floor = true
 	else: on_floor = false
-	
-	
-func _on_body_entered(_body):
-	velocity = 1
+
+func get_decay_weight(x, b=0.99, a=1):
+	return a * pow(1-b, x)

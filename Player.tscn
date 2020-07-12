@@ -1,6 +1,6 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://player2.gd" type="Script" id=1]
 [ext_resource path="res://character_art/Run/Nasrin_RunFrame3.png" type="Texture" id=2]
 [ext_resource path="res://character_art/Run/Nasrin_RunFrame4.png" type="Texture" id=3]
 [ext_resource path="res://character_art/Run/Nasrin_RunFrame7.png" type="Texture" id=4]
@@ -45,35 +45,44 @@ animations = [ {
 "name": "Jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "JumpDown",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 11 ), ExtResource( 10 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "Run",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "JumpDown",
+"speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 38.7738, 79.7444 )
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 24.0
+height = 80.0
+
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 24.0
+height = 64.0
 
 [node name="player" type="KinematicBody2D"]
 position = Vector2( 0, -16 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -4.49799, 16.2753 )
 frames = SubResource( 5 )
 animation = "Run"
-frame = 3
+frame = 4
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( -1.72083, 9.65733 )
+position = Vector2( 0, 24 )
 shape = SubResource( 6 )
+
+[node name="ladder_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladder_area"]
+position = Vector2( 0, 19 )
+shape = SubResource( 7 )
+[connection signal="area_entered" from="ladder_area" to="." method="_on_ladder_area_area_entered"]
+[connection signal="area_exited" from="ladder_area" to="." method="_on_ladder_area_area_exited"]
