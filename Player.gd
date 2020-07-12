@@ -182,3 +182,7 @@ func _on_ladder_area_area_exited(area):
 
 func get_decay_weight(x, a=1, b=0.99):
 	return a * pow(1-b, x)
+
+
+func _on_ladder_area_body_entered(body):
+	print(body.name)
