@@ -26,6 +26,7 @@ func _ready():
 	platform_generator.set_move_speed(move_speed)
 	ladder_generator.set_move_speed(move_speed)
 	scrolling_background.scroll_rate = move_speed
+	player.scroll_speed = move_speed
 	
 	tentacle_monster.set_player(player)
 

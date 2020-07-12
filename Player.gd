@@ -5,6 +5,8 @@ export (float) var gravity = 50
 export (float) var fall_animation_min_velocity = 10
 export (float) var min_insanity = 10
 
+var scroll_speed = 0
+
 #Involuntary movement Variables
 var current_insanity = 0
 var insanityLevel = 0
@@ -62,25 +64,9 @@ func deathScreen():
 
 func update_insanity(amount):
 	current_insanity = amount
+	if current_insanity >= 100:
+		kill_player()
 
-func _physics_process(delta):
-	if(position.y > 2000):
-		deathScreen()
-	if(playerDead):
-		var deathTimer = Timer.new()
-		deathTimer.set_wait_time( 2.5 )
-		deathTimer.connect("timeout", self, "deathScreen")
-		add_child(deathTimer) #to process
-		deathTimer.start()
-		
-		$AnimatedSprite.play("Death")
-		return
-		
-	velocity = Vector2()
-	
-	#General Velocity
-	velocity = velocity.normalized() * speed
-	
 func check_sanity(delta):
 	if current_insanity > min_insanity and isInsane:
 		HandleInsaneMovement()
@@ -111,6 +97,7 @@ func get_input(delta):
 		is_jumping = false
 		jumpTimer = 0
 		velocity = move_vector.normalized() * speed
+		position.y += scroll_speed * delta
 	else:
 		velocity.x = move_vector.x * speed
 		
@@ -155,22 +142,32 @@ func update_state():
 		can_jump = true
 
 func kill_player():
-	$AnimatedSprite.play("Death")
 	playerDead = true
 
-func _physics_process(delta):
-	if(playerDead):
-		return
+	if(position.y > 2000):
+		deathScreen()
 
+	var deathTimer = Timer.new()
+	deathTimer.set_wait_time( 2.5 )
+	deathTimer.connect("timeout", self, "deathScreen")
+	add_child(deathTimer)
+	deathTimer.start()
+	
+	$AnimatedSprite.play("Death")
+
+func _physics_process(delta):
 	update_state()
 
 	velocity.y += gravity
-	get_input(delta)
-	check_sanity(delta)
+	
+	if !playerDead:
+		get_input(delta)
+		check_sanity(delta)
 
 	velocity = move_and_slide(velocity, Vector2.UP)
 
-	update_animations()
+	if !playerDead:
+		update_animations()
 
 func _on_ladder_area_area_entered(area):
 	if area.name == 'climb_area':
