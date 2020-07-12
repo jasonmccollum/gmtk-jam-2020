@@ -2,8 +2,6 @@ extends KinematicBody2D
 
 export (int) var speed = 300
 
-const JumpC = "ui_accept"
-
 #Involuntary movement Variables
 var insanityLevel = 0
 var insaneMoveCount = 0
@@ -104,7 +102,7 @@ func _physics_process(delta):
 	#General Velocity
 	velocity = velocity.normalized() * speed
 	
-	if Input.is_action_pressed(JumpC):
+	if Input.is_action_pressed("jump"):
 		if(is_on_floor() or onLadder):
 			jumpMeter = maxJump
 		if(jumpMeter > 0):
@@ -145,7 +143,7 @@ func _physics_process(delta):
 		else:
 			$AnimatedSprite.play("Run")
 			
-		if Input.is_action_just_pressed(JumpC):
+		if Input.is_action_just_pressed("jump"):
 			jump_released = false
 
 	velocity = move_and_slide(velocity, Vector2.UP) 

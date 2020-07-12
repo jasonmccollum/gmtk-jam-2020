@@ -1,13 +1,24 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://particles/fire.png" type="Texture" id=1]
 [ext_resource path="res://particles/torch.png" type="Texture" id=2]
 [ext_resource path="res://particles/torch.gd" type="Script" id=3]
 [ext_resource path="res://particles/lighthalo.png" type="Texture" id=4]
+[ext_resource path="res://Screens/Fonts/SourceCodePro-Bold.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="Curve" id=1]
 max_value = 0.5
 _data = [ Vector2( 0, 0 ), 0.0, 4.19828, 0, 1, Vector2( 0.119097, 0.5 ), 0.0194179, 0.0194179, 0, 0, Vector2( 0.529774, 0.5 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -1.06332, 0.0, 1, 0 ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 96.3573
+
+[sub_resource type="CanvasItemMaterial" id=4]
+light_mode = 1
+
+[sub_resource type="DynamicFont" id=3]
+size = 50
+font_data = ExtResource( 5 )
 
 [node name="torch" type="Sprite"]
 position = Vector2( -0.320023, 50.68 )
@@ -15,6 +26,7 @@ texture = ExtResource( 2 )
 script = ExtResource( 3 )
 
 [node name="fire2" type="CPUParticles2D" parent="."]
+visible = false
 position = Vector2( 0.364304, -50.6001 )
 texture = ExtResource( 1 )
 gravity = Vector2( 0, -100 )
@@ -28,6 +40,7 @@ hue_variation = 0.15
 hue_variation_random = 0.54
 
 [node name="Light2D" type="Light2D" parent="."]
+visible = false
 position = Vector2( 0, -50 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 4 )
@@ -39,3 +52,27 @@ shadow_color = Color( 0, 0, 0, 1 )
 shadow_gradient_length = 1.0
 shadow_filter = 3
 shadow_filter_smooth = 4.0
+
+[node name="interaction_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interaction_area"]
+shape = SubResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+visible = false
+material = SubResource( 4 )
+margin_left = -19.68
+margin_top = -131.68
+margin_right = 20.32
+margin_bottom = -67.68
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.937255, 0.658824, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 0.305882, 0, 1 )
+text = "E"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="body_entered" from="interaction_area" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="interaction_area" to="." method="_on_interaction_area_body_exited"]
