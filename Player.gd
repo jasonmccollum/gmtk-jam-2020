@@ -73,7 +73,7 @@ func _physics_process(delta):
 		get_node( "AnimatedSprite" ).set_flip_h( true )
 		if on_floor == false:
 			$AnimatedSprite.play("Jump")
-			
+	
 	if Input.is_action_pressed('up') and canClimb:
 		velocity.y -= 1
 		onLadder = true
@@ -81,7 +81,13 @@ func _physics_process(delta):
 	if Input.is_action_pressed('down') and canClimb:
 		velocity.y += 1
 		#get_node( "AnimatedSprite" ).set_flip_h( true )
-
+	
+	if(onLadder):
+		if(velocity.x == 0 and velocity.y == 0):
+			$AnimatedSprite.stop()
+		else:
+			$AnimatedSprite.play("Climb")
+		
 	if(!canClimb):
 		onLadder = false
 
@@ -120,11 +126,12 @@ func _physics_process(delta):
 		#Falling action is faster than jumping action | Like in mario
 		#On falling we apply a second gravity to the player
 		#We apply ((gravity_scale + fall_gravity_scale) * earth_gravity) gravity on the player
-		$AnimatedSprite.play("JumpDown")
+		if(!onLadder):
+			$AnimatedSprite.play("JumpDown")
 		velocity += Vector2.DOWN * earth_gravity * fall_gravity_scale * delta 
 		
 
-	elif velocity.y < 0 && jump_released: #Player is jumping 
+	elif velocity.y < 0 && jump_released and !onLadder: #Player is jumping 
 		#Jump Height depends on how long you will hold key
 		#If we release the jump before reaching the max height 
 		#We apply ((gravity_scale + low_jump_gravity_scale) * earth_gravity) gravity on the player
