@@ -1,20 +1,20 @@
 [gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://tentacle_art/Tentacle01.tscn" type="PackedScene" id=1]
-[ext_resource path="res://character_art/Nasrin_RunFrame5.png" type="Texture" id=2]
-[ext_resource path="res://character_art/Nasrin_RunFrame4.png" type="Texture" id=3]
-[ext_resource path="res://character_art/spritesheet_Idle.png" type="Texture" id=4]
+[ext_resource path="res://character_art/Run/Nasrin_RunFrame5.png" type="Texture" id=2]
+[ext_resource path="res://character_art/Run/Nasrin_RunFrame4.png" type="Texture" id=3]
+[ext_resource path="res://character_art/Idle/spritesheet_Idle.png" type="Texture" id=4]
 [ext_resource path="res://platforms/platform01.png" type="Texture" id=5]
 [ext_resource path="res://background/background01.png" type="Texture" id=6]
-[ext_resource path="res://character_art/Nasrin_RunFrame7.png" type="Texture" id=7]
-[ext_resource path="res://character_art/Nasrin_RunFrame8.png" type="Texture" id=8]
-[ext_resource path="res://character_art/Nasrin_RunFrame2.png" type="Texture" id=9]
-[ext_resource path="res://character_art/Nasrin_RunFrame3.png" type="Texture" id=10]
-[ext_resource path="res://character_art/Nasrin_RunFrame6.png" type="Texture" id=11]
-[ext_resource path="res://character_art/Nasrin_RunFrame1.png" type="Texture" id=12]
+[ext_resource path="res://character_art/Run/Nasrin_RunFrame7.png" type="Texture" id=7]
+[ext_resource path="res://character_art/Run/Nasrin_RunFrame8.png" type="Texture" id=8]
+[ext_resource path="res://character_art/Run/Nasrin_RunFrame2.png" type="Texture" id=9]
+[ext_resource path="res://character_art/Run/Nasrin_RunFrame3.png" type="Texture" id=10]
+[ext_resource path="res://character_art/Run/Nasrin_RunFrame6.png" type="Texture" id=11]
+[ext_resource path="res://character_art/Run/Nasrin_RunFrame1.png" type="Texture" id=12]
 [ext_resource path="res://tentacle.png" type="Texture" id=13]
-[ext_resource path="res://character_art/Nasrin_JumpFrame1.png" type="Texture" id=14]
-[ext_resource path="res://character_art/Nasrin_JumpFrame2.png" type="Texture" id=15]
+[ext_resource path="res://character_art/Jump/Nasrin_JumpFrame1.png" type="Texture" id=14]
+[ext_resource path="res://character_art/Jump/Nasrin_JumpFrame2.png" type="Texture" id=15]
 [ext_resource path="res://Player.gd" type="Script" id=16]
 [ext_resource path="res://world/sanity_manager.gd" type="Script" id=17]
 [ext_resource path="res://Ladder.gd" type="Script" id=18]
@@ -42,6 +42,9 @@
 [ext_resource path="res://background/background01_n.png" type="Texture" id=41]
 [ext_resource path="res://world/ladder_generator.gd" type="Script" id=42]
 [ext_resource path="res://world/ladder01.tscn" type="PackedScene" id=43]
+
+
+
 
 
 [sub_resource type="Shader" id=1]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Nasrin_JumpFrame2.png-ef49595b23ff89c74cda4a54a608fb47.stex"
+path="res://.import/Nasrin_RunFrame2.png-eac2f86db6505a3c7a5d7939d5832724.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://character_art/Nasrin_JumpFrame2.png"
-dest_files=[ "res://.import/Nasrin_JumpFrame2.png-ef49595b23ff89c74cda4a54a608fb47.stex" ]
+source_file="res://character_art/Run/Nasrin_RunFrame2.png"
+dest_files=[ "res://.import/Nasrin_RunFrame2.png-eac2f86db6505a3c7a5d7939d5832724.stex" ]
 
 [params]
 

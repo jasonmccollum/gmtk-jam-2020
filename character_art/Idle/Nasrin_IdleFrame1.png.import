@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Nasrin_RunFrame4.png-7343a7d5b11f4ea8902ec14895906c31.stex"
+path="res://.import/Nasrin_IdleFrame1.png-3b6f30fcd68301b11f705e0954d1bca5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://character_art/Nasrin_RunFrame4.png"
-dest_files=[ "res://.import/Nasrin_RunFrame4.png-7343a7d5b11f4ea8902ec14895906c31.stex" ]
+source_file="res://character_art/Idle/Nasrin_IdleFrame1.png"
+dest_files=[ "res://.import/Nasrin_IdleFrame1.png-3b6f30fcd68301b11f705e0954d1bca5.stex" ]
 
 [params]
 
