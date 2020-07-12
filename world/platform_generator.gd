@@ -18,8 +18,9 @@ var move_speed = 100
 onready var max_generation_x = get_viewport_rect().size.x
 onready var row_x_step = max_generation_x / max_platforms_per_row
 
-
 func _ready():
+	for child in get_children():
+		platforms.append(child)
 	yield(get_tree().create_timer(.1), "timeout")
 	generate_row()
 	is_generating_platforms = true

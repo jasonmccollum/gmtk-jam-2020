@@ -31,9 +31,7 @@ var timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	position = Vector2(get_viewport().size.x/2, get_viewport().size.y/2)
 	SetTimer()
-	pass
 	
 func SetTimer():
 	timer = Timer.new()
@@ -45,12 +43,6 @@ func SetTimer():
 func timeOut():
 	timer.set_wait_time(randf()*5.0+1.0)
 	timer.start()
-	
-	#test code
-	if(insanityLevel < 6):
-		insanityLevel += 1
-		
-	isInsane = true
 
 func HandleInsaneMovement():
 	velocity.x = randf()*2.0-1.0
