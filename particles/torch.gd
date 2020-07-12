@@ -18,6 +18,7 @@ func activate():
 	$fire2.visible = true
 	$Light2D.visible = true
 	activated = true
+	$AudioStreamPlayer2D.play()
 
 func _unhandled_input(event):
 	if event.is_action_pressed("interact") and player_is_within and !activated:

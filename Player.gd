@@ -142,6 +142,7 @@ func update_state():
 		can_jump = true
 
 func kill_player():
+	$headpop.get_node("CPUParticles2D").emitting = true
 	playerDead = true
 
 	if(position.y > 2000):

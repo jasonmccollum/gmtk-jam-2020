@@ -10,12 +10,16 @@ _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 5 ), 7.0, 0.0, 0, 0 ]
 [sub_resource type="Gradient" id=2]
 colors = PoolColorArray( 1, 0, 0, 1, 1, 0, 0, 0 )
 
-[node name="Node2D" type="Node2D"]
+[node name="headpop" type="Node2D"]
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+lifetime = 0.5
+one_shot = true
 texture = ExtResource( 1 )
 normalmap = ExtResource( 2 )
 angle = 163.7
 angle_random = 0.79
+scale_amount = 0.3
 scale_amount_curve = SubResource( 1 )
 color_ramp = SubResource( 2 )
