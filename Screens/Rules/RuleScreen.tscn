@@ -6,11 +6,11 @@
 [ext_resource path="res://Screens/Fonts/SourceCodePro-Light.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Screens/Rules/Instructions.gd" type="Script" id=5]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 30
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 65
 font_data = ExtResource( 4 )
 
@@ -56,10 +56,10 @@ __meta__ = {
 
 [node name="Instructions" type="RichTextLabel" parent="."]
 margin_left = 1076.0
-margin_top = 357.0
+margin_top = 302.0
 margin_right = 1833.0
-margin_bottom = 778.0
-custom_fonts/normal_font = SubResource( 2 )
+margin_bottom = 750.0
+custom_fonts/normal_font = SubResource( 1 )
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -86,7 +86,7 @@ margin_left = -68.2424
 margin_top = -201.426
 margin_right = 327.758
 margin_bottom = -119.426
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.807843, 0.823529, 0.113725, 1 )
 text = "RUN >"
 __meta__ = {
@@ -107,13 +107,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -845.0
 margin_top = -403.0
-margin_right = -316.0
-margin_bottom = -188.0
+margin_right = -289.0
+margin_bottom = -161.0
 custom_fonts/normal_font = SubResource( 3 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
-text = "Move-------W,A,S,D
-Jump-------Space
-Torch------E"
+text = "Move--------W,A,S,D
+Jump--------Space
+Torch-------E
+Flashlight--Mouse"
 __meta__ = {
 "_edit_use_anchors_": false
 }
