@@ -1,21 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://world/ladder.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ladder_art/ladder03.png" type="Texture" id=2]
 [ext_resource path="res://ladder_art/ladder03_n.png" type="Texture" id=3]
-[ext_resource path="res://world/ladder01.gd" type="Script" id=4]
 
 [node name="Node2D" instance=ExtResource( 1 )]
-script = ExtResource( 4 )
 
-[node name="Area2D" parent="." index="0"]
-script = ExtResource( 4 )
+[node name="CollisionPolygon2D" parent="climb_area" index="0"]
+polygon = PoolVector2Array( 150, 223, 70, 152, 81, 27, -22, -12, -112, -40, -124, -85, -188, -95, -240, -180, -196, -226, -82, -231, -28, -213, 12, -188, 87, -219, 203, -227, 225, -107, 206, -49, 198, 52, 187, 106, 249, 162, 213, 223 )
 
-[node name="Sprite" parent="Area2D" index="0"]
+[node name="Sprite" parent="." index="1"]
 texture = ExtResource( 2 )
 normal_map = ExtResource( 3 )
-
-[node name="CollisionPolygon2D" parent="Area2D" index="1"]
-polygon = PoolVector2Array( -18.1309, 5.63596, -254.783, -140.576, -214, -234, 220, -230, 238.793, 233.424, 114.792, 234.651, 54.6324, 106.967, 49.6994, 26.7387 )
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

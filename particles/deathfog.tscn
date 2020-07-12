@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://particles/sporetrail.png" type="Texture" id=1]
+
+[sub_resource type="Curve" id=1]
+max_value = 5.0
+_data = [ Vector2( 0, 1 ), 0.0, 21.8073, 0, 1, Vector2( 0.155026, 4.38068 ), 0.0, 0.0, 0, 0, Vector2( 0.817717, 5 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -27.4299, 0.0, 1, 0 ]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.27957, 0.666667, 1 )
+colors = PoolColorArray( 0.27451, 0.690196, 0.741176, 0, 0.27451, 0.690196, 0.741176, 0.243137, 0.27451, 0.690196, 0.741176, 0.509804, 0.27451, 0.690196, 0.741176, 0 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 50
+lifetime = 5.0
+randomness = 0.17
+texture = ExtResource( 1 )
+emission_shape = 2
+emission_rect_extents = Vector2( 1000, 1 )
+gravity = Vector2( 10, 0 )
+angular_velocity = 22.5
+angular_velocity_random = 0.23
+angle = 45.0
+angle_random = 0.27
+scale_amount_curve = SubResource( 1 )
+color_ramp = SubResource( 2 )
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+amount = 50
+lifetime = 5.0
+randomness = 0.17
+texture = ExtResource( 1 )
+emission_shape = 2
+emission_rect_extents = Vector2( 1000, 1 )
+gravity = Vector2( -10, 0 )
+angular_velocity = 22.5
+angular_velocity_random = 0.23
+angle = 45.0
+angle_random = 0.27
+scale_amount_curve = SubResource( 1 )
+color_ramp = SubResource( 2 )

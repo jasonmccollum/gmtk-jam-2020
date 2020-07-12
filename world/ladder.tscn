@@ -1,9 +1,9 @@
 [gd_scene format=2]
 
-[node name="Node2D" type="Node2D"]
+[node name="ladder" type="Node2D"]
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="climb_area" type="Area2D" parent="."]
 
-[node name="Sprite" type="Sprite" parent="Area2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="climb_area"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+[node name="Sprite" type="Sprite" parent="."]

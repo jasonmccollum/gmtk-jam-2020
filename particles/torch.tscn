@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://particles/fire.png" type="Texture" id=1]
 [ext_resource path="res://particles/torch.png" type="Texture" id=2]
 [ext_resource path="res://particles/torch.gd" type="Script" id=3]
 [ext_resource path="res://particles/lighthalo.png" type="Texture" id=4]
 [ext_resource path="res://Screens/Fonts/SourceCodePro-Bold.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://audio/fire.wav" type="AudioStream" id=6]
 
 [sub_resource type="Curve" id=1]
 max_value = 0.5
@@ -13,10 +14,10 @@ _data = [ Vector2( 0, 0 ), 0.0, 4.19828, 0, 1, Vector2( 0.119097, 0.5 ), 0.01941
 [sub_resource type="CircleShape2D" id=2]
 radius = 96.3573
 
-[sub_resource type="CanvasItemMaterial" id=4]
+[sub_resource type="CanvasItemMaterial" id=3]
 light_mode = 1
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 50
 font_data = ExtResource( 5 )
 
@@ -53,6 +54,9 @@ shadow_gradient_length = 1.0
 shadow_filter = 3
 shadow_filter_smooth = 4.0
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Light2D"]
+stream = ExtResource( 6 )
+
 [node name="interaction_area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interaction_area"]
@@ -60,12 +64,12 @@ shape = SubResource( 2 )
 
 [node name="Label" type="Label" parent="."]
 visible = false
-material = SubResource( 4 )
+material = SubResource( 3 )
 margin_left = -19.68
 margin_top = -131.68
 margin_right = 20.32
 margin_bottom = -67.68
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.937255, 0.658824, 0, 1 )
 custom_colors/font_color_shadow = Color( 1, 0.305882, 0, 1 )
 text = "E"

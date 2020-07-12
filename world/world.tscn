@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://world/platform_generator.gd" type="Script" id=1]
 [ext_resource path="res://world/platform09.tscn" type="PackedScene" id=2]
@@ -23,9 +23,11 @@
 [ext_resource path="res://Player.tscn" type="PackedScene" id=21]
 [ext_resource path="res://particles/torch.tscn" type="PackedScene" id=22]
 [ext_resource path="res://tentacle_art/Tentacle02.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Screens/SanityBar/SanityCheckYay.tscn" type="PackedScene" id=24]
 
 [node name="world" type="Node2D"]
 script = ExtResource( 3 )
+move_speed = 20
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.305882, 0.0509804, 0.501961, 1 )
@@ -92,18 +94,22 @@ scale = Vector2( 2, 2 )
 script = ExtResource( 4 )
 
 [node name="music_manager" parent="." instance=ExtResource( 5 )]
-visible = false
 
 [node name="player" parent="." instance=ExtResource( 21 )]
 position = Vector2( 930, 462 )
 
-[node name="tentaclemonster" parent="." instance=ExtResource( 23 )]
+[node name="monsters" type="Node2D" parent="."]
+
+[node name="tentaclemonster" parent="monsters" instance=ExtResource( 23 )]
 position = Vector2( 1271, 1007 )
 scale = Vector2( 0.32, 0.32 )
+
+[node name="sanity_bar" parent="." instance=ExtResource( 24 )]
 
 [node name="insanity_shader" parent="." instance=ExtResource( 6 )]
 visible = false
 light_mask = 0
+margin_bottom = 1300.0
 
 [editable path="platform_generator/platform"]
 

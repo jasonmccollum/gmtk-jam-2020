@@ -1,33 +1,39 @@
 extends KinematicBody2D
 
-export (int) var speed = 300
+export (float) var speed = 300
+export (float) var gravity = 50
+export (float) var fall_animation_min_velocity = 10
+export (float) var min_insanity = 10
+
+var scroll_speed = 0
 
 #Involuntary movement Variables
+var current_insanity = 0
 var insanityLevel = 0
 var insaneMoveCount = 0
 const baseInsanityMovement = 2
 var isInsane = false
+var playerDead = false
 
 #Jump Variables
-export var fall_gravity_scale := 500.0
-export var low_jump_gravity_scale := 100.0
-export var jump_power := 15000.0
+export var jump_power := 1000
 var jump_released = false
-var jumpMeter = 0
-const maxJump = 50
+var jumpTimer = 0
+const maxJumpTime = 0.2
+var can_jump = false
+var is_jumping = false
 
+# Ladders
 var canClimb = false
 var onLadder = false
+var overlapping_ladders = []
 
-
-#Physics
 var velocity = Vector2()
-var earth_gravity = 70.807 # m/s^2
-export var gravity_scale := 100.0
-var on_floor = false
+var on_floor = true
+# Helper info for animation states
+var horizontal_input = false
 var timer
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	SetTimer()
 	
@@ -39,118 +45,137 @@ func SetTimer():
 	timer.start()
 	
 func timeOut():
+	isInsane = true
 	timer.set_wait_time(randf()*5.0+1.0)
 	timer.start()
 
 func HandleInsaneMovement():
 	velocity.x = randf()*2.0-1.0
 	velocity.y = randf()*2.0-1.0
-	velocity = velocity.normalized() * (speed) * (insanityLevel)
+	velocity = velocity.normalized() * (speed) * (5)
 	
-	insaneMoveCount+=1
+	insaneMoveCount += 1
 	if(insaneMoveCount >= 30):
 		isInsane = false
 		insaneMoveCount = 0
+	
+func deathScreen():
+	get_tree().change_scene("res://Screens/Title/TitleScreen.tscn")
 
-func _physics_process(delta):
-	
-	velocity = Vector2()
-	
-	#General Velocity
-	velocity = velocity.normalized() * speed
-	
-	#Move Left and Right
+func update_insanity(amount):
+	current_insanity = amount
+	if current_insanity >= 100:
+		kill_player()
+
+func check_sanity(delta):
+	if current_insanity > min_insanity and isInsane:
+		HandleInsaneMovement()
+
+func get_input(delta):
+	horizontal_input = false
+	var climb_pressed = false
+	var move_vector = Vector2(0, 0)
+
 	if Input.is_action_pressed('right'):
 		get_node( "AnimatedSprite" ).set_flip_h( false )
-		velocity.x += 1
-		if on_floor == false:
-			$AnimatedSprite.play("Jump")
-	if Input.is_action_pressed('left'):
-		velocity.x -= 1
+		move_vector.x = 1
+		horizontal_input = true
+	elif Input.is_action_pressed('left'):
+		move_vector.x = -1
 		get_node( "AnimatedSprite" ).set_flip_h( true )
-		if on_floor == false:
-			$AnimatedSprite.play("Jump")
-	
+		horizontal_input = true
+
 	if Input.is_action_pressed('up') and canClimb:
-		velocity.y -= 1
-		onLadder = true
-		#get_node( "AnimatedSprite" ).set_flip_h( true )
-	if Input.is_action_pressed('down') and canClimb:
-		velocity.y += 1
-		#get_node( "AnimatedSprite" ).set_flip_h( true )
-	
-	if(onLadder):
-		if(velocity.x == 0 and velocity.y == 0):
+		move_vector.y -= 1
+		climb_pressed = true
+	elif Input.is_action_pressed('down') and canClimb:
+		move_vector.y += 1
+		climb_pressed = true
+
+	# Let the player climb normally if on a ladder
+	if canClimb and (!is_jumping or climb_pressed):
+		is_jumping = false
+		jumpTimer = 0
+		velocity = move_vector.normalized() * speed
+		position.y += scroll_speed * delta
+	else:
+		velocity.x = move_vector.x * speed
+		
+	if Input.is_action_pressed("jump") and !climb_pressed and move_vector.y == 0 and (on_floor or canClimb or is_jumping) and can_jump:
+		is_jumping = true
+		jump(delta)
+		
+	if Input.is_action_just_released("jump"):
+		can_jump = false
+
+func jump(delta):
+	if (jumpTimer < maxJumpTime):
+		velocity.y -= get_decay_weight(jumpTimer, maxJumpTime) * jump_power
+		jumpTimer += delta
+
+func update_animations():
+	if(canClimb) and !is_jumping:
+		if velocity.length() == 0:
 			$AnimatedSprite.stop()
 		else:
 			$AnimatedSprite.play("Climb")
-		
-	if(!canClimb):
-		onLadder = false
-
-	#back to idle animation if right and left arrows are released
-	if  Input.is_action_just_released('right'):
-
+	else:
+		if velocity.length() == 0:
 			$AnimatedSprite.play("default")
-	
-	if  Input.is_action_just_released('left'):
-		$AnimatedSprite.play("default")
-		
-		
-	#Handle Jump
-		
-	#General Velocity
-	velocity = velocity.normalized() * speed
-	
-	if Input.is_action_pressed("jump"):
-		if(is_on_floor() or onLadder):
-			jumpMeter = maxJump
-		if(jumpMeter > 0):
-			$AnimatedSprite.play("Jump")
-			jumpMeter -= delta*100
-			velocity.y += -1000
-			jump_released = true
-	
-	
-	#Applying gravity to player
-	if(!onLadder):
-		velocity += Vector2.DOWN * earth_gravity * gravity_scale * delta
-	if (isInsane and insanityLevel > 0):
-		HandleInsaneMovement()
-
-	#Jump Physics
-	if velocity.y > 0 and !is_on_floor(): #Player is falling
-		#Falling action is faster than jumping action | Like in mario
-		#On falling we apply a second gravity to the player
-		#We apply ((gravity_scale + fall_gravity_scale) * earth_gravity) gravity on the player
-		if(!onLadder):
-			$AnimatedSprite.play("JumpDown")
-		velocity += Vector2.DOWN * earth_gravity * fall_gravity_scale * delta 
-		
-
-	elif velocity.y < 0 && jump_released and !onLadder: #Player is jumping 
-		#Jump Height depends on how long you will hold key
-		#If we release the jump before reaching the max height 
-		#We apply ((gravity_scale + low_jump_gravity_scale) * earth_gravity) gravity on the player
-		#It result on a lower jump
-		$AnimatedSprite.play("Jump")
-		velocity += Vector2.DOWN * earth_gravity * low_jump_gravity_scale * delta
-
-	if on_floor:
-		
-		if velocity.x == 0:
-			$AnimatedSprite.play("default")
-		else:
+		if velocity.x != 0 and on_floor and horizontal_input:
 			$AnimatedSprite.play("Run")
-			
-		if Input.is_action_just_pressed("jump"):
-			jump_released = false
+		elif velocity.y > fall_animation_min_velocity:
+			$AnimatedSprite.play("JumpDown")
+		elif velocity.y < 0:
+			$AnimatedSprite.play("Jump")
+		else:
+			$AnimatedSprite.play("default")
 
-	velocity = move_and_slide(velocity, Vector2.UP) 
+func update_state():
+	on_floor = is_on_floor()
+	canClimb = overlapping_ladders.size() > 0
+	if on_floor:
+		is_jumping = false
+		can_jump = true
+		jumpTimer = 0
+	elif canClimb:
+		can_jump = true
 
-	if is_on_floor(): on_floor = true
-	else: on_floor = false
+func kill_player():
+	playerDead = true
+
+	if(position.y > 2000):
+		deathScreen()
+
+	var deathTimer = Timer.new()
+	deathTimer.set_wait_time( 2.5 )
+	deathTimer.connect("timeout", self, "deathScreen")
+	add_child(deathTimer)
+	deathTimer.start()
 	
+	$AnimatedSprite.play("Death")
+
+func _physics_process(delta):
+	update_state()
+
+	velocity.y += gravity
 	
-func _on_body_entered(_body):
-	velocity = 1
+	if !playerDead:
+		get_input(delta)
+		check_sanity(delta)
+
+	velocity = move_and_slide(velocity, Vector2.UP)
+
+	if !playerDead:
+		update_animations()
+
+func _on_ladder_area_area_entered(area):
+	if area.name == 'climb_area':
+		overlapping_ladders.append(area)
+
+func _on_ladder_area_area_exited(area):
+	if area.name == 'climb_area':
+		overlapping_ladders.remove(overlapping_ladders.find(area))
+
+func get_decay_weight(x, a=1, b=0.99):
+	return a * pow(1-b, x)
