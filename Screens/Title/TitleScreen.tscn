@@ -1,0 +1,98 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://Screens/Title/TitleScreen0009.jpg" type="Texture" id=1]
+[ext_resource path="res://Screens/Title/TitleScreen0014.jpg" type="Texture" id=2]
+[ext_resource path="res://Screens/Title/TitleScreen0019.jpg" type="Texture" id=3]
+[ext_resource path="res://Screens/Title/TitleScreen0008.jpg" type="Texture" id=4]
+[ext_resource path="res://Screens/Title/TitleScreen0011.jpg" type="Texture" id=5]
+[ext_resource path="res://Screens/Title/TitleScreen0018.jpg" type="Texture" id=6]
+[ext_resource path="res://Screens/Title/TitleScreen0003.jpg" type="Texture" id=7]
+[ext_resource path="res://Screens/Title/TitleScreen0013.jpg" type="Texture" id=8]
+[ext_resource path="res://Screens/Title/TitleScreen0001.jpg" type="Texture" id=9]
+[ext_resource path="res://Screens/Title/TitleScreen0000.jpg" type="Texture" id=10]
+[ext_resource path="res://Screens/Title/TitleScreen0005.jpg" type="Texture" id=11]
+[ext_resource path="res://Screens/Title/TitleScreen0017.jpg" type="Texture" id=12]
+[ext_resource path="res://Screens/Title/TitleScreen0007.jpg" type="Texture" id=13]
+[ext_resource path="res://Screens/Title/TitleScreen0004.jpg" type="Texture" id=14]
+[ext_resource path="res://Screens/Title/TitleScreen0006.jpg" type="Texture" id=15]
+[ext_resource path="res://Screens/Title/TitleScreen0015.jpg" type="Texture" id=16]
+[ext_resource path="res://Screens/Title/TitleScreen0012.jpg" type="Texture" id=17]
+[ext_resource path="res://Screens/Title/TitleScreen0002.jpg" type="Texture" id=18]
+[ext_resource path="res://Screens/Title/TitleScreen0010.jpg" type="Texture" id=19]
+[ext_resource path="res://Screens/Title/TitleScreen0016.jpg" type="Texture" id=20]
+[ext_resource path="res://Screens/Fonts/SourceCodePro-Light.ttf" type="DynamicFontData" id=21]
+[ext_resource path="res://Screens/Title/Button.gd" type="Script" id=22]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 10 ), ExtResource( 9 ), ExtResource( 18 ), ExtResource( 7 ), ExtResource( 14 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 13 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 19 ), ExtResource( 5 ), ExtResource( 17 ), ExtResource( 8 ), ExtResource( 2 ), ExtResource( 16 ), ExtResource( 20 ), ExtResource( 12 ), ExtResource( 6 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 7.0
+} ]
+
+[sub_resource type="DynamicFont" id=2]
+size = 112
+font_data = ExtResource( 21 )
+
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 965.066, 543.37 )
+frames = SubResource( 1 )
+frame = 14
+playing = true
+
+[node name="Button" type="Button" parent="."]
+anchor_left = -0.015
+anchor_top = -0.03
+anchor_right = 0.049
+margin_left = 688.028
+margin_top = 762.868
+margin_right = 911.028
+margin_bottom = 861.868
+rect_rotation = -40.922
+flat = true
+script = ExtResource( 22 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Button"]
+margin_right = 42.0
+margin_bottom = 14.0
+rect_rotation = -2.15492
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.945098, 0.862745, 0, 1 )
+text = "BEGIN"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="VBoxContainer" parent="."]
+visible = false
+margin_left = 120.0
+margin_top = 80.0
+margin_right = 1840.0
+margin_bottom = 1000.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterRow" type="HBoxContainer" parent="Menu"]
+margin_right = 1720.0
+margin_bottom = 920.0
+size_flags_vertical = 3
+
+[node name="Buttons" type="VBoxContainer" parent="Menu/CenterRow"]
+margin_right = 1720.0
+margin_bottom = 920.0
+size_flags_horizontal = 3
+[connection signal="mouse_entered" from="Button" to="Button" method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="Button" method="_on_Button_mouse_exited"]
