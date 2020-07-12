@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://world/platform_generator.gd" type="Script" id=1]
 [ext_resource path="res://world/platform09.tscn" type="PackedScene" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://background/scrolling_background.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=21]
 [ext_resource path="res://particles/torch.tscn" type="PackedScene" id=22]
+[ext_resource path="res://tentacle_art/Tentacle02.tscn" type="PackedScene" id=23]
 
 [node name="world" type="Node2D"]
 script = ExtResource( 3 )
@@ -102,6 +103,10 @@ position = Vector2( 308, 383 )
 
 [node name="Light2D" parent="torch3" index="1"]
 position = Vector2( -5, -43 )
+
+[node name="tentaclemonster" parent="." instance=ExtResource( 23 )]
+position = Vector2( 1271, 1007 )
+scale = Vector2( 0.32, 0.32 )
 
 [node name="insanity_shader" parent="." instance=ExtResource( 6 )]
 visible = false

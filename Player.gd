@@ -53,7 +53,6 @@ func HandleInsaneMovement():
 	if(insaneMoveCount >= 30):
 		isInsane = false
 		insaneMoveCount = 0
-		
 
 func _physics_process(delta):
 	
