@@ -18,7 +18,7 @@ func _ready():
 func build_skeleton():
 	var bones_stack = [root]
 	
-	while bones_stack.size():
+	while bones_stack.size() and bones_stack.size() > 1:
 		var bone = bones_stack.pop_front()
 		bones.append(bone)
 		var depth = float(str(get_path_to(bone)).split('/').size())

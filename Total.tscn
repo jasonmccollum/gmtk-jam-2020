@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://tentacle_art/Tentacle01.tscn" type="PackedScene" id=1]
 [ext_resource path="res://character_art/Run/Nasrin_RunFrame5.png" type="Texture" id=2]
@@ -35,6 +35,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=33]
 [ext_resource path="res://shaders/vignette.png" type="Texture" id=34]
 [ext_resource path="res://world/ladder02.tscn" type="PackedScene" id=35]
+[ext_resource path="res://character_art/Climb/spritesheet_characterclimb.png" type="Texture" id=36]
 [ext_resource path="res://world/spore_generator.gd" type="Script" id=37]
 [ext_resource path="res://particles/spore.tscn" type="PackedScene" id=38]
 [ext_resource path="res://particles/torch.tscn" type="PackedScene" id=39]
@@ -42,10 +43,6 @@
 [ext_resource path="res://background/background01_n.png" type="Texture" id=41]
 [ext_resource path="res://world/ladder_generator.gd" type="Script" id=42]
 [ext_resource path="res://world/ladder01.tscn" type="PackedScene" id=43]
-
-
-
-
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -117,6 +114,31 @@ flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 0, 148, 141, 148 )
 
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 36 )
+region = Rect2( 0, 0, 141, 156 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 36 )
+region = Rect2( 141, 0, 141, 156 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 36 )
+region = Rect2( 282, 0, 141, 156 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 36 )
+region = Rect2( 0, 156, 141, 156 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 36 )
+region = Rect2( 141, 156, 141, 156 )
+
 [sub_resource type="SpriteFrames" id=9]
 animations = [ {
 "frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
@@ -138,6 +160,11 @@ animations = [ {
 "loop": true,
 "name": "Run",
 "speed": 10.0
+}, {
+"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"loop": true,
+"name": "Climb",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=10]
@@ -221,7 +248,8 @@ position = Vector2( 4.789, -84.392 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
 position = Vector2( -4.49799, 16.2753 )
 frames = SubResource( 9 )
-animation = "Run"
+animation = "Climb"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
