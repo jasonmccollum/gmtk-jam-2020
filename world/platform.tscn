@@ -17,4 +17,5 @@ polygon = PoolVector2Array( 23.6098, -36.9653, 82.8846, -20.2007, 90.0695, 39.07
 one_way_collision = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+show_behind_parent = true
 occluder = SubResource( 1 )

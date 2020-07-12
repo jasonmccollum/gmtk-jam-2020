@@ -18,4 +18,5 @@ normal_map = ExtResource( 3 )
 polygon = PoolVector2Array( -126.834, -282.742, 45.0024, -328.565, 425.907, -314.245, 606.335, -106.61, 405.859, 328.71, 148.104, 315.822, 33.5467, 175.489, -284.351, 166.897, -530.65, -7.80353, -534.17, -107.761, -249.984, -149.569 )
 
 [node name="LightOccluder2D" parent="." index="2"]
+show_behind_parent = true
 occluder = SubResource( 1 )
