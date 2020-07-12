@@ -2,6 +2,8 @@ extends Node2D
 
 export var generation_distance = 300
 export var generation_y = -400
+export var min_torches_per_row = 2
+export var max_torches_per_row = 4
 export var min_platforms_per_row = 3
 export var max_platforms_per_row = 5
 export var y_variation_per_row = 300
@@ -10,6 +12,7 @@ export var max_y = 1600
 
 export (Array, PackedScene) var platform_bases = []
 
+var torch_scene = preload("res://particles/torch.tscn")
 var platforms = []
 var is_generating_platforms = false
 var last_row = null
@@ -71,6 +74,26 @@ func generate_row():
 		var platform = generate_platform(x, y)
 		platforms.append(platform)
 		last_row.append(platform)
+	
+	generate_torches()
+
+func generate_torches():
+	var num_torches = round(rand_range(min_torches_per_row, max_torches_per_row))
+	var platform_indices = []
+
+	for i in range (last_row.size()):
+		platform_indices.append(i)
+
+	platform_indices.shuffle()
+
+	var platform_torch_indices = platform_indices.slice(0, num_torches - 1)
+	
+	for i in platform_torch_indices:
+		var new_torch = torch_scene.instance()
+		new_torch.position = last_row[i].get_node("torchbase").position
+		# Fix torch scale being scaled by platform scale
+		new_torch.scale *= 1 / last_row[i].scale.x
+		last_row[i].add_child(new_torch)
 
 func generate_platform(x, y):
 	var index = randi() % platform_bases.size()

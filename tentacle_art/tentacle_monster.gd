@@ -35,7 +35,6 @@ func set_player(p):
 func _process(delta):
 	if !player:
 		return
-	print(player)
 
 	for bone in bones:
 		var depth = bone_depth[bone.name]
