@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://world/platform_generator.gd" type="Script" id=1]
 [ext_resource path="res://world/platform09.tscn" type="PackedScene" id=2]
@@ -24,6 +24,8 @@
 [ext_resource path="res://particles/torch.tscn" type="PackedScene" id=22]
 [ext_resource path="res://tentacle_art/Tentacle02.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Screens/SanityBar/SanityCheckYay.tscn" type="PackedScene" id=24]
+[ext_resource path="res://world/spore_generator.gd" type="Script" id=25]
+[ext_resource path="res://particles/spore.tscn" type="PackedScene" id=26]
 
 [node name="world" type="Node2D"]
 script = ExtResource( 3 )
@@ -90,6 +92,10 @@ position = Vector2( 304, 564 )
 position = Vector2( 28, -318 )
 scale = Vector2( 2, 2 )
 
+[node name="spore_generator" type="Node2D" parent="."]
+script = ExtResource( 25 )
+spore_base = ExtResource( 26 )
+
 [node name="sanity_manager" type="Node2D" parent="."]
 script = ExtResource( 4 )
 
@@ -99,10 +105,11 @@ script = ExtResource( 4 )
 position = Vector2( 930, 462 )
 
 [node name="monsters" type="Node2D" parent="."]
+position = Vector2( -288.854, 711.51 )
 
 [node name="tentaclemonster" parent="monsters" instance=ExtResource( 23 )]
 position = Vector2( 1271, 1007 )
-scale = Vector2( 0.32, 0.32 )
+scale = Vector2( 0.5, 0.5 )
 
 [node name="sanity_bar" parent="." instance=ExtResource( 24 )]
 
