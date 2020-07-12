@@ -3,13 +3,14 @@ extends RichTextLabel
 
 var Timer 
 
-var sentence1 = "\n\nIt was a mistake."
-var sentence2= "\n\nThe fungus wildly grew and its nauseating SPORES made her lose control of her own mind."
-var sentence3="\n\nOnly LIGHT and FIRE can keep the angry creature at bay."
+var sentence1 = "\n\nIt was a mistake"
+var sentence2= "\n\nThe nauseating SPORES made her lose control of her own mind."
+var sentence3="\n\nThe LIGHT made the spores uncomfortable."
+var sentence4="\n\nBut only FIRE can keep the angry fungus and her MIND at bay."
 
 
 
-var sentencearray =  [sentence1, sentence2,sentence3]
+var sentencearray =  [sentence1, sentence2,sentence3,sentence4]
 
 
 #func _ready():
@@ -24,7 +25,7 @@ var num=0
 func _process(delta):
 	time += delta
 
-	if time > TIME_PERIOD && num < 3 :
+	if time > TIME_PERIOD && num < 4:
 		text += sentencearray[num]
 		# Reset timer
 		num+=1
