@@ -17,6 +17,7 @@ onready var max_insanity = sanity_manager.max_insanity
 func _ready():
 	sanity_manager.connect("update_insanity", music_manager, 'update_insanity')
 	sanity_manager.connect("update_insanity", insanity_shader, 'update_insanity')
+	sanity_manager.connect("update_insanity", player, "update_insanity")
 
 	music_manager.max_insanity = max_insanity
 	insanity_shader.max_insanity = max_insanity

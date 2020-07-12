@@ -1,16 +1,17 @@
 extends KinematicBody2D
 
-
 export (float) var speed = 300
 export (float) var gravity = 50
 export (float) var fall_animation_min_velocity = 10
+export (float) var min_insanity = 10
 
 #Involuntary movement Variables
+var current_insanity = 100
 var insanityLevel = 0
 var insaneMoveCount = 0
 const baseInsanityMovement = 2
 var isInsane = false
-var insanity_timer
+var playerDead = false
 
 #Jump Variables
 export var jump_power := 1000
@@ -29,6 +30,39 @@ var velocity = Vector2()
 var on_floor = true
 # Helper info for animation states
 var horizontal_input = false
+var timer
+
+func _ready():
+	SetTimer()
+	
+func SetTimer():
+	timer = Timer.new()
+	timer.set_wait_time( 2 )
+	timer.connect("timeout", self, "timeOut")
+	add_child(timer) #to process
+	timer.start()
+	
+func timeOut():
+	isInsane = true
+	timer.set_wait_time(randf()*5.0+1.0)
+	timer.start()
+
+func HandleInsaneMovement():
+	velocity.x = randf()*2.0-1.0
+	velocity.y = randf()*2.0-1.0
+	velocity = velocity.normalized() * (speed) * (5)
+	
+	insaneMoveCount += 1
+	if(insaneMoveCount >= 30):
+		isInsane = false
+		insaneMoveCount = 0
+
+func update_insanity(amount):
+	current_insanity = amount
+	
+func check_sanity(delta):
+	if current_insanity > min_insanity and isInsane:
+		HandleInsaneMovement()
 
 func get_input(delta):
 	horizontal_input = false
@@ -99,21 +133,27 @@ func update_state():
 	elif canClimb:
 		can_jump = true
 
+func kill_player():
+	$AnimatedSprite.play("Death")
+	playerDead = true
+
 func _physics_process(delta):
+	if(playerDead):
+		return
+
 	update_state()
 
 	velocity.y += gravity
 	get_input(delta)
+	check_sanity(delta)
 
 	velocity = move_and_slide(velocity, Vector2.UP)
 
 	update_animations()
 
-
 func _on_ladder_area_area_entered(area):
 	if area.name == 'climb_area':
 		overlapping_ladders.append(area)
-
 
 func _on_ladder_area_area_exited(area):
 	if area.name == 'climb_area':
