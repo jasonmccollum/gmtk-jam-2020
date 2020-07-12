@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://tentacle_art/tentaclebranch.png" type="Texture" id=1]
 [ext_resource path="res://tentacle_art/tentacle_monster.gd" type="Script" id=2]
+[ext_resource path="res://audio/tentacle.wav" type="AudioStream" id=3]
+[ext_resource path="res://particles/spore.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 46.7676
@@ -29,15 +31,21 @@ position = Vector2( -557.461, -1746.29 )
 rotation = -2.6842
 shape = SubResource( 1 )
 
+[node name="CPUParticles2D" parent="tentaclemonster/tip01" instance=ExtResource( 4 )]
+
 [node name="tip02" type="CollisionShape2D" parent="tentaclemonster"]
 position = Vector2( -269.533, -1919.03 )
 rotation = -2.6842
 shape = SubResource( 1 )
 
+[node name="CPUParticles2D" parent="tentaclemonster/tip02" instance=ExtResource( 4 )]
+
 [node name="tip03" type="CollisionShape2D" parent="tentaclemonster"]
 position = Vector2( -7.80864, -1813.43 )
 rotation = -2.6842
 shape = SubResource( 1 )
+
+[node name="CPUParticles2D" parent="tentaclemonster/tip03" instance=ExtResource( 4 )]
 
 [node name="tip04" type="CollisionShape2D" parent="tentaclemonster"]
 position = Vector2( -621.049, -1221.8 )
@@ -45,20 +53,28 @@ rotation = -2.6842
 scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
+[node name="CPUParticles2D" parent="tentaclemonster/tip04" instance=ExtResource( 4 )]
+
 [node name="tip05" type="CollisionShape2D" parent="tentaclemonster"]
 position = Vector2( -577.879, -1455.82 )
 rotation = -2.6842
 shape = SubResource( 1 )
+
+[node name="CPUParticles2D" parent="tentaclemonster/tip05" instance=ExtResource( 4 )]
 
 [node name="tip06" type="CollisionShape2D" parent="tentaclemonster"]
 position = Vector2( -914.146, -1001.41 )
 rotation = -2.6842
 shape = SubResource( 1 )
 
+[node name="CPUParticles2D" parent="tentaclemonster/tip06" instance=ExtResource( 4 )]
+
 [node name="tip07" type="CollisionShape2D" parent="tentaclemonster"]
 position = Vector2( -805.086, -1162.73 )
 rotation = -2.6842
 shape = SubResource( 1 )
+
+[node name="CPUParticles2D" parent="tentaclemonster/tip07" instance=ExtResource( 4 )]
 
 [node name="tip08" type="CollisionShape2D" parent="tentaclemonster"]
 position = Vector2( -898.241, -758.299 )
@@ -66,10 +82,14 @@ rotation = -2.6842
 scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
+[node name="CPUParticles2D" parent="tentaclemonster/tip08" instance=ExtResource( 4 )]
+
 [node name="tip09" type="CollisionShape2D" parent="tentaclemonster"]
 position = Vector2( 95.5668, -1322.76 )
 rotation = -2.6842
 shape = SubResource( 1 )
+
+[node name="CPUParticles2D" parent="tentaclemonster/tip09" instance=ExtResource( 4 )]
 
 [node name="tip10" type="CollisionShape2D" parent="tentaclemonster"]
 position = Vector2( 310.29, -1293.03 )
@@ -77,10 +97,14 @@ rotation = -2.6842
 scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
+[node name="CPUParticles2D" parent="tentaclemonster/tip10" instance=ExtResource( 4 )]
+
 [node name="tip11" type="CollisionShape2D" parent="tentaclemonster"]
 position = Vector2( -57.8176, -1045.6 )
 rotation = -2.6842
 shape = SubResource( 1 )
+
+[node name="CPUParticles2D" parent="tentaclemonster/tip11" instance=ExtResource( 4 )]
 
 [node name="tip12" type="CollisionShape2D" parent="tentaclemonster"]
 position = Vector2( 423.53, -1094.12 )
@@ -88,10 +112,14 @@ rotation = -2.6842
 scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
+[node name="CPUParticles2D" parent="tentaclemonster/tip12" instance=ExtResource( 4 )]
+
 [node name="tip13" type="CollisionShape2D" parent="tentaclemonster"]
 position = Vector2( 583.532, -1099.6 )
 rotation = -2.6842
 shape = SubResource( 1 )
+
+[node name="CPUParticles2D" parent="tentaclemonster/tip13" instance=ExtResource( 4 )]
 
 [node name="tip14" type="CollisionShape2D" parent="tentaclemonster"]
 position = Vector2( 745.205, -882.182 )
@@ -99,16 +127,22 @@ rotation = -2.68421
 scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
+[node name="CPUParticles2D" parent="tentaclemonster/tip14" instance=ExtResource( 4 )]
+
 [node name="tip15" type="CollisionShape2D" parent="tentaclemonster"]
 position = Vector2( 424.53, -521.888 )
 rotation = -2.6842
 scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
+[node name="CPUParticles2D" parent="tentaclemonster/tip15" instance=ExtResource( 4 )]
+
 [node name="tip16" type="CollisionShape2D" parent="tentaclemonster"]
 position = Vector2( 657.733, -431.787 )
 rotation = -2.6842
 shape = SubResource( 1 )
+
+[node name="CPUParticles2D" parent="tentaclemonster/tip16" instance=ExtResource( 4 )]
 
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
 
@@ -542,3 +576,6 @@ rest = Transform2D( 0.648792, -0.760966, 0.760966, 0.648792, 0, 0 )
 position = Vector2( 47.5979, -11.9152 )
 rotation = -1.8194
 remote_path = NodePath("../../../../../../../../../../tentaclemonster/tip16")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )

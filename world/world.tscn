@@ -108,8 +108,16 @@ position = Vector2( 930, 462 )
 position = Vector2( -288.854, 711.51 )
 
 [node name="tentaclemonster" parent="monsters" instance=ExtResource( 23 )]
-position = Vector2( 1271, 1007 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 1361.42, 1349.67 )
+scale = Vector2( 0.6, 0.6 )
+
+[node name="tentaclemonster2" parent="monsters" instance=ExtResource( 23 )]
+position = Vector2( 2431.89, 1271.73 )
+scale = Vector2( 0.6, 0.6 )
+
+[node name="tentaclemonster3" parent="monsters" instance=ExtResource( 23 )]
+position = Vector2( 294.915, 1313.36 )
+scale = Vector2( 0.6, 0.6 )
 
 [node name="sanity_bar" parent="." instance=ExtResource( 24 )]
 
