@@ -29,5 +29,6 @@ func _on_Area2D_body_entered(body):
 		die()
 
 func _on_Area2D_area_entered(area):
-	if area.get_parent().name == 'flashlight':
+	var isTentacleSpore = ("tip" in get_parent().name)
+	if area.get_parent().name == 'flashlight' and !isTentacleSpore:
 		die()
