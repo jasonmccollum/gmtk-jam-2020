@@ -1,20 +1,22 @@
+
 [gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://platforms/platform01_n.png" type="Texture" id=1]
 [ext_resource path="res://character_art/Nasrin_RunFrame5.png" type="Texture" id=2]
 [ext_resource path="res://character_art/Nasrin_RunFrame4.png" type="Texture" id=3]
 [ext_resource path="res://character_art/spritesheet_Idle.png" type="Texture" id=4]
+
 [ext_resource path="res://platforms/platform01.png" type="Texture" id=5]
 [ext_resource path="res://background/background01.png" type="Texture" id=6]
-[ext_resource path="res://character_art/Nasrin_RunFrame7.png" type="Texture" id=7]
-[ext_resource path="res://character_art/Nasrin_RunFrame8.png" type="Texture" id=8]
-[ext_resource path="res://character_art/Nasrin_RunFrame2.png" type="Texture" id=9]
-[ext_resource path="res://character_art/Nasrin_RunFrame3.png" type="Texture" id=10]
-[ext_resource path="res://character_art/Nasrin_RunFrame6.png" type="Texture" id=11]
-[ext_resource path="res://character_art/Nasrin_RunFrame1.png" type="Texture" id=12]
+[ext_resource path="res://character_art/Run/Nasrin_RunFrame7.png" type="Texture" id=7]
+[ext_resource path="res://character_art/Run/Nasrin_RunFrame8.png" type="Texture" id=8]
+[ext_resource path="res://character_art/Run/Nasrin_RunFrame2.png" type="Texture" id=9]
+[ext_resource path="res://character_art/Run/Nasrin_RunFrame3.png" type="Texture" id=10]
+[ext_resource path="res://character_art/Run/Nasrin_RunFrame6.png" type="Texture" id=11]
+[ext_resource path="res://character_art/Run/Nasrin_RunFrame1.png" type="Texture" id=12]
 [ext_resource path="res://tentacle.png" type="Texture" id=13]
-[ext_resource path="res://character_art/Nasrin_JumpFrame1.png" type="Texture" id=14]
-[ext_resource path="res://character_art/Nasrin_JumpFrame2.png" type="Texture" id=15]
+[ext_resource path="res://character_art/Jump/Nasrin_JumpFrame1.png" type="Texture" id=14]
+[ext_resource path="res://character_art/Jump/Nasrin_JumpFrame2.png" type="Texture" id=15]
 [ext_resource path="res://Player.gd" type="Script" id=16]
 [ext_resource path="res://world/sanity_manager.gd" type="Script" id=17]
 [ext_resource path="res://Ladder.gd" type="Script" id=18]
@@ -117,6 +119,31 @@ flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 0, 148, 141, 148 )
 
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 36 )
+region = Rect2( 0, 0, 141, 156 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 36 )
+region = Rect2( 141, 0, 141, 156 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 36 )
+region = Rect2( 282, 0, 141, 156 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 36 )
+region = Rect2( 0, 156, 141, 156 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 36 )
+region = Rect2( 141, 156, 141, 156 )
+
 [sub_resource type="SpriteFrames" id=9]
 animations = [ {
 "frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
@@ -138,6 +165,11 @@ animations = [ {
 "loop": true,
 "name": "Run",
 "speed": 10.0
+}, {
+"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"loop": true,
+"name": "Climb",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=10]
@@ -223,8 +255,8 @@ position = Vector2( 4.789, -84.392 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
 position = Vector2( -4.49799, 16.2753 )
 frames = SubResource( 9 )
-animation = "Run"
-frame = 5
+animation = "Climb"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
