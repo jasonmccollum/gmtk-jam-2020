@@ -34,3 +34,7 @@ func _ready():
 func _physics_process(delta):
 	platform_generator.move_platforms(delta)
 	ladder_generator.move_ladders(delta)
+	var speed = sanity_manager.current_insanity*2 + 50
+	platform_generator.move_speed = speed
+	ladder_generator.move_speed = speed
+	scrolling_background.scroll_rate = speed
