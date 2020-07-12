@@ -56,9 +56,30 @@ func HandleInsaneMovement():
 	if(insaneMoveCount >= 30):
 		isInsane = false
 		insaneMoveCount = 0
+	
+func deathScreen():
+	get_tree().change_scene("res://Screens/Title/TitleScreen.tscn")
 
 func update_insanity(amount):
 	current_insanity = amount
+
+func _physics_process(delta):
+	if(position.y > 2000):
+		deathScreen()
+	if(playerDead):
+		var deathTimer = Timer.new()
+		deathTimer.set_wait_time( 2.5 )
+		deathTimer.connect("timeout", self, "deathScreen")
+		add_child(deathTimer) #to process
+		deathTimer.start()
+		
+		$AnimatedSprite.play("Death")
+		return
+		
+	velocity = Vector2()
+	
+	#General Velocity
+	velocity = velocity.normalized() * speed
 	
 func check_sanity(delta):
 	if current_insanity > min_insanity and isInsane:
