@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://character_art/Run/Nasrin_RunFrame3.png" type="Texture" id=2]
@@ -32,6 +32,7 @@
 [ext_resource path="res://character_art/Death/Death_DeathFrame16.png" type="Texture" id=30]
 [ext_resource path="res://character_art/Death/Death_DeathFrame15.png" type="Texture" id=31]
 [ext_resource path="res://character_art/Death/Death_DeathFrame20.png" type="Texture" id=32]
+[ext_resource path="res://character_art/Climb/spritesheet_characterclimb.png" type="Texture" id=33]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -52,6 +53,41 @@ region = Rect2( 282, 0, 141, 148 )
 flags = 4
 atlas = ExtResource( 12 )
 region = Rect2( 0, 148, 141, 148 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 33 )
+region = Rect2( 282, 156, 141, 156 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 33 )
+region = Rect2( 0, 0, 141, 156 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 33 )
+region = Rect2( 141, 0, 141, 156 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 33 )
+region = Rect2( 282, 0, 141, 156 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 33 )
+region = Rect2( 0, 156, 141, 156 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 33 )
+region = Rect2( 141, 156, 141, 156 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 33 )
+region = Rect2( 282, 156, 141, 156 )
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
@@ -75,9 +111,14 @@ animations = [ {
 "name": "Run",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 15 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 14 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 22 ), ExtResource( 26 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 29 ), ExtResource( 23 ), ExtResource( 31 ), ExtResource( 30 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 21 ), ExtResource( 32 ) ],
+"frames": [ ExtResource( 13 ), ExtResource( 15 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 14 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 22 ), ExtResource( 26 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 29 ), ExtResource( 23 ), ExtResource( 31 ), ExtResource( 30 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 21 ), ExtResource( 32 ), SubResource( 7 ) ],
 "loop": true,
 "name": "Death",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"loop": true,
+"name": "Climb",
 "speed": 5.0
 } ]
 
@@ -94,8 +135,8 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -4.49799, 16.2753 )
 frames = SubResource( 5 )
-animation = "Death"
-frame = 13
+animation = "Climb"
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
