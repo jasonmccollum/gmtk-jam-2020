@@ -1,15 +1,21 @@
 extends Node2D
 
+export var max_charge = 100
+export var use_rate = 50
+export var charge_rate = 50
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var current_charge = max_charge
 
+var is_mouse_down = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
+func _input(event):
+	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
+		if event.pressed:
+			is_mouse_down = true
+			visible = true
+		else:
+			is_mouse_down = false
+			visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -17,5 +23,10 @@ func _process(delta):
 	var blah = get_global_mouse_position()
 	rotation = blah.angle_to_point(global_position)
 	
-	#var mouseAngleX = direction.x / (absX + absY)
-	#var mouseAngleY = direction.y / (absX + absY)
+	if is_mouse_down:
+		current_charge -= use_rate * delta
+	else:
+		current_charge = clamp(current_charge + charge_rate * delta, 0, max_charge)
+	
+	if current_charge < 0:
+		visible = false

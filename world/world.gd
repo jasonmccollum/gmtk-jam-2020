@@ -31,6 +31,9 @@ func _ready():
 	for monster in monsters.get_children():
 		monster.set_player(player)
 
+func update_flashlight_state():
+	$flashlight_meter.value = player.get_node("flashlight").get("current_charge")
+
 func _physics_process(delta):
 	platform_generator.move_platforms(delta)
 	ladder_generator.move_ladders(delta)
@@ -38,3 +41,4 @@ func _physics_process(delta):
 	platform_generator.move_speed = speed
 	ladder_generator.move_speed = speed
 	scrolling_background.scroll_rate = speed
+	update_flashlight_state()
