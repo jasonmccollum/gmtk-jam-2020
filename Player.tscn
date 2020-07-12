@@ -54,42 +54,42 @@ flags = 4
 atlas = ExtResource( 12 )
 region = Rect2( 0, 148, 141, 148 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=5]
 flags = 4
 atlas = ExtResource( 33 )
 region = Rect2( 282, 156, 141, 156 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=6]
 flags = 4
 atlas = ExtResource( 33 )
 region = Rect2( 0, 0, 141, 156 )
 
-[sub_resource type="AtlasTexture" id=9]
+[sub_resource type="AtlasTexture" id=7]
 flags = 4
 atlas = ExtResource( 33 )
 region = Rect2( 141, 0, 141, 156 )
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=8]
 flags = 4
 atlas = ExtResource( 33 )
 region = Rect2( 282, 0, 141, 156 )
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="AtlasTexture" id=9]
 flags = 4
 atlas = ExtResource( 33 )
 region = Rect2( 0, 156, 141, 156 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=10]
 flags = 4
 atlas = ExtResource( 33 )
 region = Rect2( 141, 156, 141, 156 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=11]
 flags = 4
 atlas = ExtResource( 33 )
 region = Rect2( 282, 156, 141, 156 )
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=12]
 animations = [ {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
@@ -101,9 +101,14 @@ animations = [ {
 "name": "Jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ ExtResource( 13 ), ExtResource( 15 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 14 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 22 ), ExtResource( 26 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 29 ), ExtResource( 23 ), ExtResource( 31 ), ExtResource( 30 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 21 ), ExtResource( 32 ), SubResource( 5 ) ],
 "loop": true,
-"name": "JumpDown",
+"name": "Death",
+"speed": 8.0
+}, {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"loop": true,
+"name": "Climb",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 11 ), ExtResource( 10 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 6 ) ],
@@ -111,18 +116,13 @@ animations = [ {
 "name": "Run",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 15 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 14 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 22 ), ExtResource( 26 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 29 ), ExtResource( 23 ), ExtResource( 31 ), ExtResource( 30 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 21 ), ExtResource( 32 ), SubResource( 7 ) ],
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
-"name": "Death",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
-"loop": true,
-"name": "Climb",
+"name": "JumpDown",
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 38.7738, 79.7444 )
 
 [node name="player" type="KinematicBody2D"]
@@ -134,12 +134,12 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -4.49799, 16.2753 )
-frames = SubResource( 5 )
+frames = SubResource( 12 )
 animation = "Climb"
-frame = 2
+frame = 5
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( -1.72083, 9.65733 )
-shape = SubResource( 6 )
+shape = SubResource( 13 )
