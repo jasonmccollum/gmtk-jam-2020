@@ -155,6 +155,8 @@ func _physics_process(delta):
 	if is_on_floor(): on_floor = true
 	else: on_floor = false
 	
+	position.x = clamp(position.x, 0, 1900)
+	
 	
 func _on_body_entered(_body):
 	velocity = 1
