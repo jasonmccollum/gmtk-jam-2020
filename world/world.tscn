@@ -98,7 +98,9 @@ script = ExtResource( 4 )
 [node name="player" parent="." instance=ExtResource( 21 )]
 position = Vector2( 930, 462 )
 
-[node name="tentaclemonster" parent="." instance=ExtResource( 23 )]
+[node name="monsters" type="Node2D" parent="."]
+
+[node name="tentaclemonster" parent="monsters" instance=ExtResource( 23 )]
 position = Vector2( 1271, 1007 )
 scale = Vector2( 0.32, 0.32 )
 
