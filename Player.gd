@@ -47,10 +47,12 @@ func timeOut():
 func HandleInsaneMovement():
 	velocity.x = randf()*2.0-1.0
 	velocity.y = randf()*2.0-1.0
-	velocity = velocity.normalized() * (speed) * (5)
+	
+	var root = get_tree().get_root().get_node("world")
+	velocity = velocity.normalized() * (speed) * (root.sanity_manager.current_insanity / 8)
 	
 	insaneMoveCount+=1
-	if(insaneMoveCount >= 30):
+	if(insaneMoveCount >= (root.sanity_manager.current_insanity / 2)):
 		isInsane = false
 		insaneMoveCount = 0
 	
