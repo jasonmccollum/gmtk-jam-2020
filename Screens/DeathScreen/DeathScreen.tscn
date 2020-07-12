@@ -52,9 +52,9 @@ __meta__ = {
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="TextureRect"]
-margin_left = 880.772
-margin_top = 789.0
-margin_right = 1788.77
+margin_left = 881.0
+margin_top = 786.0
+margin_right = 1789.0
 margin_bottom = 835.0
 custom_fonts/normal_font = SubResource( 1 )
 text = "\"Life is to be lived, not controlled; "
@@ -63,12 +63,12 @@ __meta__ = {
 }
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="TextureRect"]
-margin_left = 906.164
-margin_top = 844.885
-margin_right = 1599.16
-margin_bottom = 936.885
+margin_left = 906.0
+margin_top = 845.0
+margin_right = 1641.0
+margin_bottom = 937.0
 custom_fonts/normal_font = SubResource( 2 )
-text = "and humanity is won by continuing to play in face of certain defeat.\""
+text = "and humanity is won by continuing to play in the face of certain defeat.\""
 __meta__ = {
 "_edit_use_anchors_": false
 }
