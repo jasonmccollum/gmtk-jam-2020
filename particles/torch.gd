@@ -20,11 +20,11 @@ func _unhandled_input(event):
 	if event.is_action_pressed("interact") and player_is_within and !activated:
 		activate()
 
-
 func _on_interaction_area_body_entered(body):
 	if body.name == 'player':
 		player_is_within = true
-		$Label.visible = true
+		if !activated:
+			$Label.visible = true
 
 func _on_interaction_area_body_exited(body):
 	if body.name == 'player':
