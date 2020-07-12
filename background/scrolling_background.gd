@@ -27,7 +27,7 @@ func _ready():
 	init_backgrounds()
 
 func init_backgrounds():
-	for i in range(3):
+	for i in range(5):
 		generate_background(true, -i * 1920)
 
 func _physics_process(delta):
