@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://world/platform_generator.gd" type="Script" id=1]
 [ext_resource path="res://world/platform09.tscn" type="PackedScene" id=2]
@@ -21,9 +21,13 @@
 [ext_resource path="res://world/ladder01.tscn" type="PackedScene" id=19]
 [ext_resource path="res://background/scrolling_background.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=21]
+[ext_resource path="res://particles/torch.tscn" type="PackedScene" id=22]
 
 [node name="world" type="Node2D"]
 script = ExtResource( 3 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.305882, 0.0509804, 0.501961, 1 )
 
 [node name="scrolling_background" parent="." instance=ExtResource( 20 )]
 position = Vector2( 960, 540 )
@@ -76,11 +80,39 @@ position = Vector2( 295, 242 )
 script = ExtResource( 4 )
 
 [node name="music_manager" parent="." instance=ExtResource( 5 )]
+visible = false
 
 [node name="player" parent="." instance=ExtResource( 21 )]
 position = Vector2( 930, 462 )
 
+[node name="torch" parent="." instance=ExtResource( 22 )]
+position = Vector2( 1046, 501 )
+
+[node name="Light2D" parent="torch" index="1"]
+position = Vector2( -5, -43 )
+
+[node name="torch2" parent="." instance=ExtResource( 22 )]
+position = Vector2( 1393, 319 )
+
+[node name="Light2D" parent="torch2" index="1"]
+position = Vector2( -5, -43 )
+
+[node name="torch3" parent="." instance=ExtResource( 22 )]
+position = Vector2( 308, 383 )
+
+[node name="Light2D" parent="torch3" index="1"]
+position = Vector2( -5, -43 )
+
 [node name="insanity_shader" parent="." instance=ExtResource( 6 )]
-light_mask = 524288
+visible = false
+light_mask = 0
+
+[editable path="platform_generator/platform"]
+
+[editable path="torch"]
+
+[editable path="torch2"]
+
+[editable path="torch3"]
 
 [editable path="insanity_shader"]

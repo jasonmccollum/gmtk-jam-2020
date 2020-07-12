@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [sub_resource type="StreamTexture" id=1]
 flags = 4
@@ -8,6 +8,22 @@ load_path = "res://.import/background01.png-47664cae8be36e6cb3fcb6b13c82b784.ste
 flags = 4
 load_path = "res://.import/background01_n.png-4f1958fe3fa6790f4e50111e16934f11.stex"
 
+[sub_resource type="CanvasItemMaterial" id=3]
+blend_mode = 3
+
 [node name="background" type="Sprite"]
 texture = SubResource( 1 )
 normal_map = SubResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -960.0
+margin_top = -960.0
+margin_right = -960.0
+margin_bottom = -960.0
+color = Color( 0.376471, 0.376471, 0.376471, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
