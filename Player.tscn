@@ -1,0 +1,78 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://character_art/Nasrin_RunFrame3.png" type="Texture" id=2]
+[ext_resource path="res://character_art/Nasrin_RunFrame4.png" type="Texture" id=3]
+[ext_resource path="res://character_art/Nasrin_RunFrame7.png" type="Texture" id=4]
+[ext_resource path="res://character_art/Nasrin_RunFrame5.png" type="Texture" id=5]
+[ext_resource path="res://character_art/Nasrin_RunFrame8.png" type="Texture" id=6]
+[ext_resource path="res://character_art/Nasrin_JumpFrame1.png" type="Texture" id=7]
+[ext_resource path="res://character_art/Nasrin_JumpFrame2.png" type="Texture" id=8]
+[ext_resource path="res://character_art/Nasrin_RunFrame6.png" type="Texture" id=9]
+[ext_resource path="res://character_art/Nasrin_RunFrame2.png" type="Texture" id=10]
+[ext_resource path="res://character_art/Nasrin_RunFrame1.png" type="Texture" id=11]
+[ext_resource path="res://character_art/spritesheet_Idle.png" type="Texture" id=12]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 0, 0, 141, 148 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 141, 0, 141, 148 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 282, 0, 141, 148 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 0, 148, 141, 148 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "JumpDown",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 10 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Run",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 38.7738, 79.7444 )
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 406.211, 401.392 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -4.49799, 16.2753 )
+frames = SubResource( 5 )
+animation = "Run"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -1.72083, 9.65733 )
+shape = SubResource( 6 )

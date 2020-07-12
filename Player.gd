@@ -52,14 +52,6 @@ func timeOut():
 		
 	isInsane = true
 
-func get_input():
-	if (isInsane and insanityLevel > 0):
-		HandleInsaneMovement()
-#	else:
-#		HandleNormalMovement()
-
-
-
 func HandleInsaneMovement():
 	velocity.x = randf()*2.0-1.0
 	velocity.y = randf()*2.0-1.0
@@ -128,6 +120,8 @@ func _physics_process(delta):
 	#Applying gravity to player
 	if(!onLadder):
 		velocity += Vector2.DOWN * earth_gravity * gravity_scale * delta
+	if (isInsane and insanityLevel > 0):
+		HandleInsaneMovement()
 
 	#Jump Physics
 	if velocity.y > 0 and !is_on_floor(): #Player is falling

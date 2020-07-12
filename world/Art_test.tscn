@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://world/platform03.tscn" type="PackedScene" id=1]
 [ext_resource path="res://particles/flashlight.tscn" type="PackedScene" id=2]
@@ -9,6 +9,9 @@
 [ext_resource path="res://background/background01_n.png" type="Texture" id=7]
 [ext_resource path="res://particles/spore.tscn" type="PackedScene" id=8]
 [ext_resource path="res://tentacle_art/Tentacle01.tscn" type="PackedScene" id=9]
+[ext_resource path="res://world/ladder03.tscn" type="PackedScene" id=10]
+[ext_resource path="res://world/ladder01.tscn" type="PackedScene" id=11]
+[ext_resource path="res://world/ladder02.tscn" type="PackedScene" id=12]
 
 [node name="Node2D" type="Node2D"]
 
@@ -39,3 +42,12 @@ position = Vector2( 39.5034, -256.398 )
 
 [node name="tentacle" parent="." instance=ExtResource( 9 )]
 position = Vector2( 54.4824, 962.11 )
+
+[node name="Node2D2" parent="." instance=ExtResource( 10 )]
+position = Vector2( -336.797, -353.108 )
+
+[node name="Node2D" parent="Node2D2" instance=ExtResource( 12 )]
+position = Vector2( 963.117, -249.588 )
+
+[node name="Node2D" parent="." instance=ExtResource( 11 )]
+position = Vector2( -164.434, 131.124 )
