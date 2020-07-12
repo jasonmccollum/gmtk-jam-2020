@@ -42,5 +42,5 @@ func _on_Area2D_area_entered(area):
 	if area.get_parent().name == 'flashlight':
 		flashlight_ref = area.get_parent()
 
-	if is_on_flashlight or is_torch and !isTentacleSport:
+	if is_on_flashlight or is_torch and !isTentacleSpore:
 		die()
