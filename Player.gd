@@ -54,10 +54,10 @@ func HandleInsaneMovement():
 	velocity.y = randf()*2.0-1.0
 	
 	var root = get_tree().get_root().get_node("world")
-	velocity = velocity.normalized() * (speed) * (root.sanity_manager.current_insanity / 8)
+	velocity = velocity.normalized() * (speed) * (current_insanity / 8)
 	
 	insaneMoveCount+=1
-	if(insaneMoveCount >= (root.sanity_manager.current_insanity / 2)):
+	if(insaneMoveCount >= (current_insanity / 2)):
 		isInsane = false
 		insaneMoveCount = 0
 	
