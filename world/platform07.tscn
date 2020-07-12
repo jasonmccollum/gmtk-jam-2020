@@ -20,3 +20,6 @@ polygon = PoolVector2Array( 460.35, -220.635, 329.212, -6.59326, 345.792, 136.60
 
 [node name="LightOccluder2D" parent="." index="2"]
 occluder = SubResource( 1 )
+
+[node name="torchbase" parent="." index="3"]
+position = Vector2( -123.602, -286.394 )

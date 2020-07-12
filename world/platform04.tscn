@@ -18,6 +18,8 @@ normal_map = ExtResource( 2 )
 polygon = PoolVector2Array( -139.958, -0.171692, -32.0646, 44.2551, 112.322, 28.3884, 240.843, -203.266, 524.857, -214.372, 555.004, -28.7318, 255.123, 310.816, -165.345, 340.963, -504.893, 37.9084, -501.719, -173.119, -230.399, -179.466 )
 
 [node name="LightOccluder2D" parent="." index="2"]
-show_behind_parent = true
 position = Vector2( 0, 1.58667 )
 occluder = SubResource( 1 )
+
+[node name="torchbase" parent="." index="3"]
+position = Vector2( 295.121, -203.094 )

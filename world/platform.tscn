@@ -19,3 +19,5 @@ one_way_collision = true
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 show_behind_parent = true
 occluder = SubResource( 1 )
+
+[node name="torchbase" type="Node2D" parent="."]
