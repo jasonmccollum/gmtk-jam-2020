@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://world/platform_generator.gd" type="Script" id=1]
 [ext_resource path="res://world/platform09.tscn" type="PackedScene" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://particles/spore.tscn" type="PackedScene" id=25]
 [ext_resource path="res://world/spore_generator.gd" type="Script" id=26]
 [ext_resource path="res://particles/flashlight.tscn" type="PackedScene" id=27]
+[ext_resource path="res://particles/flashlight.gd" type="Script" id=28]
 
 [node name="world" type="Node2D"]
 script = ExtResource( 3 )
@@ -99,7 +100,8 @@ scale = Vector2( 2, 2 )
 position = Vector2( 930, 462 )
 
 [node name="Flashlight" parent="player" instance=ExtResource( 27 )]
-position = Vector2( 2.789, -41.392 )
+position = Vector2( 15.789, -47.392 )
+script = ExtResource( 28 )
 
 [node name="tentaclemonster" parent="." instance=ExtResource( 23 )]
 position = Vector2( 949.071, 1284.41 )

@@ -35,6 +35,11 @@ func set_player(p):
 func _process(delta):
 	if !player:
 		return
+	else:
+		if(position.x < player.position.x):
+			position.x += 0.7
+		else:
+			position.x -= 0.7
 
 	for bone in bones:
 		var depth = bone_depth[bone.name]
