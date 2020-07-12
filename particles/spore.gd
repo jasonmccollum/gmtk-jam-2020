@@ -1,9 +1,9 @@
 extends CPUParticles2D
 
-
-
 export var move_speed = 100
 export var max_y = 1600
+
+var death_scene = preload("res://particles/sporedeath.tscn")
 
 func _physics_process(delta):
 	if!("tip" in get_parent().name):
@@ -12,6 +12,11 @@ func _physics_process(delta):
 	if position.y >= max_y:
 		queue_free()
 
+func die():
+	var deathspore = death_scene.instance()
+	deathspore.global_position = global_position
+	get_parent().add_child(deathspore)
+	queue_free()
 
 func _on_Area2D_body_entered(body):
 	if(body.name == "player"):
@@ -21,4 +26,8 @@ func _on_Area2D_body_entered(body):
 			root.player.playerDead = true
 		else:
 			root.sanity_manager.change_insanity(10)
-		queue_free()
+		die()
+
+func _on_Area2D_area_entered(area):
+	if area.get_parent().name == 'flashlight':
+		die()
