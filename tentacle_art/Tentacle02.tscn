@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://tentacle_art/tentaclebranch.png" type="Texture" id=1]
 [ext_resource path="res://tentacle_art/tentacle_monster.gd" type="Script" id=2]
-[ext_resource path="res://particles/spore.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 46.7676
@@ -30,23 +29,15 @@ position = Vector2( -557.461, -1746.29 )
 rotation = -2.6842
 shape = SubResource( 1 )
 
-[node name="CPUParticles2D" parent="tentaclemonster/tip01" instance=ExtResource( 3 )]
-
 [node name="tip02" type="CollisionShape2D" parent="tentaclemonster"]
 position = Vector2( -269.533, -1919.03 )
 rotation = -2.6842
-scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
-
-[node name="CPUParticles2D" parent="tentaclemonster/tip02" instance=ExtResource( 3 )]
 
 [node name="tip03" type="CollisionShape2D" parent="tentaclemonster"]
 position = Vector2( -7.80864, -1813.43 )
 rotation = -2.6842
-scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
-
-[node name="CPUParticles2D" parent="tentaclemonster/tip03" instance=ExtResource( 3 )]
 
 [node name="tip04" type="CollisionShape2D" parent="tentaclemonster"]
 position = Vector2( -621.049, -1221.8 )
@@ -54,30 +45,20 @@ rotation = -2.6842
 scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
-[node name="CPUParticles2D" parent="tentaclemonster/tip04" instance=ExtResource( 3 )]
-
 [node name="tip05" type="CollisionShape2D" parent="tentaclemonster"]
 position = Vector2( -577.879, -1455.82 )
 rotation = -2.6842
 shape = SubResource( 1 )
 
-[node name="CPUParticles2D" parent="tentaclemonster/tip05" instance=ExtResource( 3 )]
-
 [node name="tip06" type="CollisionShape2D" parent="tentaclemonster"]
 position = Vector2( -914.146, -1001.41 )
 rotation = -2.6842
-scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
-
-[node name="CPUParticles2D" parent="tentaclemonster/tip06" instance=ExtResource( 3 )]
 
 [node name="tip07" type="CollisionShape2D" parent="tentaclemonster"]
 position = Vector2( -805.086, -1162.73 )
 rotation = -2.6842
-scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
-
-[node name="CPUParticles2D" parent="tentaclemonster/tip07" instance=ExtResource( 3 )]
 
 [node name="tip08" type="CollisionShape2D" parent="tentaclemonster"]
 position = Vector2( -898.241, -758.299 )
@@ -85,14 +66,10 @@ rotation = -2.6842
 scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
-[node name="CPUParticles2D" parent="tentaclemonster/tip08" instance=ExtResource( 3 )]
-
 [node name="tip09" type="CollisionShape2D" parent="tentaclemonster"]
 position = Vector2( 95.5668, -1322.76 )
 rotation = -2.6842
 shape = SubResource( 1 )
-
-[node name="CPUParticles2D" parent="tentaclemonster/tip09" instance=ExtResource( 3 )]
 
 [node name="tip10" type="CollisionShape2D" parent="tentaclemonster"]
 position = Vector2( 310.29, -1293.03 )
@@ -100,15 +77,10 @@ rotation = -2.6842
 scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
-[node name="CPUParticles2D" parent="tentaclemonster/tip10" instance=ExtResource( 3 )]
-
 [node name="tip11" type="CollisionShape2D" parent="tentaclemonster"]
 position = Vector2( -57.8176, -1045.6 )
 rotation = -2.6842
-scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
-
-[node name="CPUParticles2D" parent="tentaclemonster/tip11" instance=ExtResource( 3 )]
 
 [node name="tip12" type="CollisionShape2D" parent="tentaclemonster"]
 position = Vector2( 423.53, -1094.12 )
@@ -116,23 +88,16 @@ rotation = -2.6842
 scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
-[node name="CPUParticles2D" parent="tentaclemonster/tip12" instance=ExtResource( 3 )]
-
 [node name="tip13" type="CollisionShape2D" parent="tentaclemonster"]
 position = Vector2( 583.532, -1099.6 )
 rotation = -2.6842
-scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
-
-[node name="CPUParticles2D" parent="tentaclemonster/tip13" instance=ExtResource( 3 )]
 
 [node name="tip14" type="CollisionShape2D" parent="tentaclemonster"]
 position = Vector2( 745.205, -882.182 )
-rotation = -2.6842
+rotation = -2.68421
 scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
-
-[node name="CPUParticles2D" parent="tentaclemonster/tip14" instance=ExtResource( 3 )]
 
 [node name="tip15" type="CollisionShape2D" parent="tentaclemonster"]
 position = Vector2( 424.53, -521.888 )
@@ -140,15 +105,10 @@ rotation = -2.6842
 scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
-[node name="CPUParticles2D" parent="tentaclemonster/tip15" instance=ExtResource( 3 )]
-
 [node name="tip16" type="CollisionShape2D" parent="tentaclemonster"]
 position = Vector2( 657.733, -431.787 )
 rotation = -2.6842
-scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
-
-[node name="CPUParticles2D" parent="tentaclemonster/tip16" instance=ExtResource( 3 )]
 
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
 
@@ -243,7 +203,6 @@ rest = Transform2D( 0.430908, -0.902396, 0.902396, 0.430908, 28.6394, -93.455 )
 [node name="RemoteTransform2D03" type="RemoteTransform2D" parent="Skeleton2D/base/armA1/armA2/armA3/armA4/armA5/armA6/armA7/AfingerC1/AfingerC2/AfingerC3/AfingerC4"]
 position = Vector2( 54.4441, -1.78516 )
 rotation = -1.5589
-scale = Vector2( 1, 1 )
 remote_path = NodePath("../../../../../../../../../../../../../../tentaclemonster/tip03")
 
 [node name="AbranchB1" type="Bone2D" parent="Skeleton2D/base/armA1/armA2/armA3/armA4/armA5"]
@@ -273,7 +232,6 @@ rest = Transform2D( -0.889264, 0.457393, -0.457393, -0.889264, -45.4414, 11.9583
 [node name="RemoteTransform2D04" type="RemoteTransform2D" parent="Skeleton2D/base/armA1/armA2/armA3/armA4/armA5/AbranchB1/AbranchB2/ABfingerA1/ABfingerA2/ABfingerA3/ABfingerA4"]
 position = Vector2( 46.8286, 0.322021 )
 rotation = 0.932455
-scale = Vector2( 1, 1 )
 remote_path = NodePath("../../../../../../../../../../../../../../tentaclemonster/tip04")
 
 [node name="ABfingerB1" type="Bone2D" parent="Skeleton2D/base/armA1/armA2/armA3/armA4/armA5/AbranchB1/AbranchB2"]
@@ -328,7 +286,6 @@ rest = Transform2D( -0.993768, -0.111472, 0.111472, -0.993768, -62.1678, -16.239
 [node name="RemoteTransform2D06" type="RemoteTransform2D" parent="Skeleton2D/base/armA1/armA2/armA3/AbranchA1/AbranchA2/AbranchA3/AAfingerB1/AAfingerB2/AAfingerB3/AAfingerB4"]
 position = Vector2( 37.7232, 9.56927 )
 rotation = 0.34569
-scale = Vector2( 1, 1 )
 remote_path = NodePath("../../../../../../../../../../../../../tentaclemonster/tip06")
 
 [node name="AAfingerC1" type="Bone2D" parent="Skeleton2D/base/armA1/armA2/armA3/AbranchA1/AbranchA2/AbranchA3"]
@@ -350,7 +307,6 @@ rest = Transform2D( -0.52192, -0.852994, 0.852994, -0.52192, -40.0952, -61.5747 
 [node name="RemoteTransform2D07" type="RemoteTransform2D" parent="Skeleton2D/base/armA1/armA2/armA3/AbranchA1/AbranchA2/AbranchA3/AAfingerC1/AAfingerC2/AAfingerC3/AAfingerC4"]
 position = Vector2( 36.0726, -2.36877 )
 rotation = -0.5643
-scale = Vector2( 1, 1 )
 remote_path = NodePath("../../../../../../../../../../../../../tentaclemonster/tip07")
 
 [node name="AAfingerA1" type="Bone2D" parent="Skeleton2D/base/armA1/armA2/armA3/AbranchA1/AbranchA2"]
@@ -372,7 +328,6 @@ rest = Transform2D( -0.999998, 0.00175253, -0.00175253, -0.999998, -83.9771, -4.
 [node name="RemoteTransform2D08" type="RemoteTransform2D" parent="Skeleton2D/base/armA1/armA2/armA3/AbranchA1/AbranchA2/AAfingerA1/AAfingerA2/AAfingerA3/AAfingerA4"]
 position = Vector2( 34.9098, 0.247559 )
 rotation = 0.459145
-scale = Vector2( 1, 1 )
 remote_path = NodePath("../../../../../../../../../../../../tentaclemonster/tip08")
 
 [node name="armB1" type="Bone2D" parent="Skeleton2D/base"]
@@ -490,7 +445,6 @@ rest = Transform2D( -0.221866, -0.975077, 0.975077, -0.221866, 0, 0 )
 [node name="RemoteTransform2D12" type="RemoteTransform2D" parent="Skeleton2D/base/armB1/armB2/armB3/armB4/BbranchA1/BbranchA2/BBfingerA1/BBfingerA2/BBfingerA3/BBfingerA4"]
 position = Vector2( 34.182, 0.509155 )
 rotation = -0.88968
-scale = Vector2( 1, 1 )
 remote_path = NodePath("../../../../../../../../../../../../../tentaclemonster/tip12")
 
 [node name="BBfingerB1" type="Bone2D" parent="Skeleton2D/base/armB1/armB2/armB3/armB4/BbranchA1/BbranchA2"]
@@ -512,7 +466,6 @@ rest = Transform2D( 0.277929, -0.960602, 0.960602, 0.277929, 0, 0 )
 [node name="RemoteTransform2D13" type="RemoteTransform2D" parent="Skeleton2D/base/armB1/armB2/armB3/armB4/BbranchA1/BbranchA2/BBfingerB1/BBfingerB2/BBfingerB3/BBfingerB4"]
 position = Vector2( 39.6953, -2.84628 )
 rotation = -1.39504
-scale = Vector2( 1, 1 )
 remote_path = NodePath("../../../../../../../../../../../../../tentaclemonster/tip13")
 
 [node name="BBfingerC1" type="Bone2D" parent="Skeleton2D/base/armB1/armB2/armB3/armB4/BbranchA1"]
@@ -534,7 +487,6 @@ rest = Transform2D( 1, 0, 0, 1, 0, 0 )
 [node name="RemoteTransform2D14" type="RemoteTransform2D" parent="Skeleton2D/base/armB1/armB2/armB3/armB4/BbranchA1/BBfingerC1/BBfingerC2/BBfingerC3/BBfingerC4"]
 position = Vector2( 44.2675, 1.99561 )
 rotation = -1.75194
-scale = Vector2( 1, 1 )
 remote_path = NodePath("../../../../../../../../../../../../tentaclemonster/tip14")
 
 [node name="armC1" type="Bone2D" parent="Skeleton2D/base"]
@@ -568,7 +520,6 @@ rest = Transform2D( 0.245889, -0.969298, 0.969298, 0.245889, 0, 0 )
 [node name="RemoteTransform2D15" type="RemoteTransform2D" parent="Skeleton2D/base/armC1/armC2/armC3/CfingerA1/CfingerA2/CfingerA3/CfingerA4"]
 position = Vector2( 49.9391, -1.42657 )
 rotation = -1.36184
-scale = Vector2( 1, 1 )
 remote_path = NodePath("../../../../../../../../../../tentaclemonster/tip15")
 
 [node name="CfingerB1" type="Bone2D" parent="Skeleton2D/base/armC1/armC2/armC3"]
@@ -590,5 +541,4 @@ rest = Transform2D( 0.648792, -0.760966, 0.760966, 0.648792, 0, 0 )
 [node name="RemoteTransform2D16" type="RemoteTransform2D" parent="Skeleton2D/base/armC1/armC2/armC3/CfingerB1/CfingerB2/CfingerB3/CfingerB4"]
 position = Vector2( 47.5979, -11.9152 )
 rotation = -1.8194
-scale = Vector2( 1, 1 )
 remote_path = NodePath("../../../../../../../../../../tentaclemonster/tip16")

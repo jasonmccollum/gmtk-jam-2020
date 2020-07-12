@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=2]
 
-[ext_resource path="res://player2.gd" type="Script" id=1]
+[ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://character_art/Run/Nasrin_RunFrame3.png" type="Texture" id=2]
 [ext_resource path="res://character_art/Run/Nasrin_RunFrame4.png" type="Texture" id=3]
 [ext_resource path="res://character_art/Run/Nasrin_RunFrame7.png" type="Texture" id=4]
@@ -82,7 +82,7 @@ script = ExtResource( 1 )
 position = Vector2( -4.49799, 16.2753 )
 frames = SubResource( 5 )
 animation = "Climb"
-frame = 2
+frame = 5
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

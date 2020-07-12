@@ -40,13 +40,14 @@ func SetTimer():
 	timer.start()
 	
 func timeOut():
+	isInsane = true
 	timer.set_wait_time(randf()*5.0+1.0)
 	timer.start()
 
 func HandleInsaneMovement():
 	velocity.x = randf()*2.0-1.0
 	velocity.y = randf()*2.0-1.0
-	velocity = velocity.normalized() * (speed) * (insanityLevel)
+	velocity = velocity.normalized() * (speed) * (5)
 	
 	insaneMoveCount+=1
 	if(insaneMoveCount >= 30):
@@ -55,7 +56,7 @@ func HandleInsaneMovement():
 
 func _physics_process(delta):
 	if(playerDead):
-		$AnimatedSprite.play("Dead")
+		$AnimatedSprite.play("Death")
 		return
 		
 	velocity = Vector2()
@@ -118,8 +119,13 @@ func _physics_process(delta):
 	#Applying gravity to player
 	if(!onLadder):
 		velocity += Vector2.DOWN * earth_gravity * gravity_scale * delta
-	if (isInsane and insanityLevel > 0):
-		HandleInsaneMovement()
+		
+	var root = get_tree().get_root().get_node("world")
+	if (root.sanity_manager.current_insanity > 5 and isInsane):
+		if(root.sanity_manager.current_insanity > 99):
+			playerDead = true
+		else:
+			HandleInsaneMovement()
 
 	#Jump Physics
 	if velocity.y > 0 and !is_on_floor(): #Player is falling

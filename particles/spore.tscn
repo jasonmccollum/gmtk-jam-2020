@@ -18,7 +18,7 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.542572, 0, 1, Vector2( 0.356048, 1.19318 ), 0.
 
 [sub_resource type="Gradient" id=4]
 offsets = PoolRealArray( 0, 0.27957, 0.666667, 1 )
-colors = PoolColorArray( 0.27451, 0.690196, 0.741176, 0, 0.27451, 0.690196, 0.741176, 1, 0.27451, 0.690196, 0.741176, 1, 0.27451, 0.690196, 0.741176, 0 )
+colors = PoolColorArray( 0.27451, 0.690196, 0.741176, 0, 0.27451, 0.690196, 0.741176, 0.243137, 0.27451, 0.690196, 0.741176, 0.509804, 0.27451, 0.690196, 0.741176, 0 )
 
 [node name="CPUParticles2D" type="CPUParticles2D"]
 amount = 3
@@ -54,5 +54,6 @@ color_ramp = SubResource( 4 )
 [node name="Light2D" type="Light2D" parent="."]
 scale = Vector2( 2.24653, 3.21606 )
 texture = ExtResource( 3 )
+texture_scale = 2.13
 energy = 0.35
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
