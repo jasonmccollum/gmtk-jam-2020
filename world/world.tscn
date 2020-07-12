@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://world/platform_generator.gd" type="Script" id=1]
 [ext_resource path="res://world/platform09.tscn" type="PackedScene" id=2]
@@ -26,13 +26,14 @@
 [ext_resource path="res://Screens/SanityBar/SanityCheckYay.tscn" type="PackedScene" id=24]
 [ext_resource path="res://world/spore_generator.gd" type="Script" id=25]
 [ext_resource path="res://particles/spore.tscn" type="PackedScene" id=26]
+[ext_resource path="res://particles/deathfog.tscn" type="PackedScene" id=27]
 
 [node name="world" type="Node2D"]
 script = ExtResource( 3 )
 move_speed = 20
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0.305882, 0.0509804, 0.501961, 1 )
+color = Color( 0.631373, 0.333333, 0.862745, 1 )
 
 [node name="scrolling_background" parent="." instance=ExtResource( 20 )]
 position = Vector2( 960, 540 )
@@ -122,9 +123,11 @@ scale = Vector2( 0.6, 0.6 )
 [node name="sanity_bar" parent="." instance=ExtResource( 24 )]
 
 [node name="insanity_shader" parent="." instance=ExtResource( 6 )]
-visible = false
 light_mask = 0
 margin_bottom = 1300.0
+
+[node name="Node2D" parent="." instance=ExtResource( 27 )]
+position = Vector2( 975.396, 1256.3 )
 
 [editable path="platform_generator/platform"]
 

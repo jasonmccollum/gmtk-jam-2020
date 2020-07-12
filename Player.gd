@@ -60,7 +60,7 @@ func HandleInsaneMovement():
 		insaneMoveCount = 0
 	
 func deathScreen():
-	get_tree().change_scene("res://Screens/Title/TitleScreen.tscn")
+	get_tree().change_scene("res://Screens/DeathScreen/DeathScreen.tscn")
 
 func update_insanity(amount):
 	current_insanity = amount
